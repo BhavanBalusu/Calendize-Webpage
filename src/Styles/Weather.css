@@ -1,0 +1,191 @@
+.holder {
+	display: flex;
+	flex-direction: row;
+}
+
+
+
+.weather {
+	margin-top: 100px;
+	margin-left: 200px;
+	align-self: flex-start;
+	background: linear-gradient(to top, rgb(124, 124, 212), rgba(151, 128, 232, 0.75));
+	display: flex;
+	color: white;
+	border-radius: 45px;
+	flex-direction: column;
+	width: 375px;
+	height: 195px;
+	padding-bottom: 20px;
+}
+
+@media screen and (max-width: 1350px) {
+	.housing {
+		overflow-x: hidden;
+		flex-direction: column-reverse;
+	}
+
+	.weather {
+		margin-left: 0px;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+
+	.subHolder {
+		margin-bottom: 200px;
+	}
+}
+
+.cityName {
+	margin: 20px;
+	padding: 10px;
+	padding-bottom: 5px;
+	height: 20px;
+	font-weight: 800;
+	font-size: 20px;
+	/* background: linear-gradient(to left, rgb(41, 113, 246), rgb(121, 88, 250));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent; */
+	color: white;
+}
+
+.tempInfo {
+	display: flex;
+	flex-direction: row;
+	margin: 0px;
+	padding: 0px;
+	height: 90px;
+	text-align: center;
+}
+
+.temp {
+	margin-top: 20px;
+	width: 200px;
+	height: 100px;
+	text-align: center;
+	font-size: 50px;
+	font-weight: 600;
+}
+
+.moreInfo {
+	display: flex;
+	flex-direction: column;
+	padding: none;
+	justify-content: space-evenly;
+	align-items: center;
+	border-radius: 20px;
+	margin-bottom: 10px;
+	width: 90px;
+}
+
+.noLocation {
+	padding-top: 80px;
+	padding-left: 50px;
+	font-size: 25px;
+	margin: 0px;
+}
+
+.minMax {
+	margin-top: 40px;
+	margin-bottom: 10px;
+	width: 200px;
+	height: 100px;
+}
+
+
+.GetUserLocation {
+	width: 500px;
+	margin-top: 25px;
+	display: flex;
+	flex-direction: column;
+	color: rgb(175, 172, 169);
+	background: rgb(255, 255, 255);
+	border-radius: 20px;
+	box-shadow: 4px 1px 40px 2px rgb(197, 189, 189);
+}
+
+.location-form input {
+	box-shadow: none;
+	width: 200px;
+	height: 40px;
+	border: none;
+	outline: none;
+}
+
+.location-form {
+	width: 100px;
+	margin-top: 20px;
+	margin-left: 140px;
+}
+
+.location-form .locationInput {
+	background: rgb(237, 235, 235);
+	width: 200px;
+	height: 40px;
+}
+
+.weather-label {
+	padding-top: 30px;
+	margin-left: 35px;
+	color: rgb(109, 112, 177);
+	font-size: 28px;
+}
+
+.GetUserLocation button {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: white;
+	border-radius: 10px;
+	border: none;
+	font-size: 15px;
+	cursor: pointer;
+	transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.or {
+	margin-left: 220px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.locationSubmit:hover {
+	background: linear-gradient(to left, rgb(92, 31, 153), rgb(160, 89, 188));
+}
+
+.GetUserLocation h2 {
+	margin-left: 80px;
+}
+
+.locationSubmit {
+	background: linear-gradient(to left, rgb(103, 35, 170), rgb(199, 111, 234));
+	height: 50px;
+	width: 300px;
+	position: relative;
+	left: -40px
+}
+
+.Dummy {
+	margin-left: 140px;
+	width: 200px;
+	height: 40px;
+	background: linear-gradient(to right, rgb(110, 112, 184), rgb(128, 71, 215));
+}
+
+.Dummy:hover {
+	background: linear-gradient(to right, rgb(83, 84, 138), rgb(106, 58, 177));
+}
+
+.wrong {
+	margin-top: 30px;
+	font-weight: 500;
+	color: red;
+	display: none;
+	transition: all 2s ease;
+	margin-left: 180px;
+}
+
+.disclaimer {
+	margin-top: 30px;
+	margin-left: 110px;
+	margin-bottom: 30px;
+}
