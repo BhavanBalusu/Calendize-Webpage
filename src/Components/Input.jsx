@@ -46,7 +46,7 @@ export default function Input() {
             valid = false;
         }
 
-        if (startDate > endDate) {
+        if (startDate >= endDate) {
             valid = false;
         }
 
@@ -75,7 +75,7 @@ export default function Input() {
                 details: details,
                 day: theDay,
                 duration: duration,
-                end: endDate
+                end: endDate,
             }
 
             try {
@@ -98,6 +98,8 @@ export default function Input() {
             }
 
 
+            setDefaultBorderAll()
+
             const invalid = document.querySelector(".invalidData");
             invalid.style.display = 'none';
 
@@ -112,7 +114,12 @@ export default function Input() {
                 dateElement.style.border = '2px solid red'
             }
 
-            if (startDate > endDate || startDate < new Date()) {
+            if (endTime === "00:00") {
+                const endElement = document.querySelector("#endTime")
+                endElement.style.border = '2px solid red'
+            }
+
+            else if (startDate >= endDate || startDate < new Date()) {
                 const startElement = document.querySelector("#startTime");
                 startElement.style.border = '2px solid red';
             }
@@ -124,6 +131,13 @@ export default function Input() {
 
     function setDefaultBorder(e) {
         e.target.style.border = "1px solid rgba(0, 0, 0, 0.2)";
+    }
+
+    function setDefaultBorderAll() {
+        let elements = [document.querySelector("#eventName"), document.querySelector(".datePicker"),
+        document.querySelector("#endTime"), document.querySelector("#startTime")]
+
+        elements.forEach(ele => ele.style.border = '1px solid rgba(0, 0, 0, 0.2)')
     }
 
 
@@ -150,7 +164,7 @@ export default function Input() {
                     <input type="time" name="start-time" onChange={e => { e.preventDefault(); setStartTime(e.target.value); setDefaultBorder(e) }}
                         className="event time" id="startTime" />
                     <label htmlFor="end-time">End time:</label>
-                    <input name="end-time" type="time" id="end-time" min="0" placeholder="Hours"
+                    <input name="end-time" type="time" id="endTime" min="0"
                         onChange={e => { e.preventDefault(); setEndTime(e.target.value); setDefaultBorder(e) }} />
                 </div>
 

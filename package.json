@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "ajax": "^0.0.4",
     "all": "^0.0.0",
-    "bootstrap-icons": "^1.10.2",
+    "bootstrap-icons": "^1.10.3",
     "cors": "^2.8.5",
     "dom-parser": "^0.1.6",
     "fetch": "^1.1.0",

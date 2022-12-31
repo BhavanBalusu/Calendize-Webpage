@@ -161,7 +161,6 @@ input::-webkit-inner-spin-button {
 .event-input label {
 	margin-top: 40px;
 	margin-left: 40px;
-	color: white;
 }
 
 .event-input .submitButton:hover {
@@ -173,7 +172,7 @@ input::-webkit-inner-spin-button {
 	margin-left: 130px;
 	color: red;
 	display: none;
-	transition: all 2s ease;
+	transition: all 0.2s ease;
 }
 
 .event-holder-box input,
