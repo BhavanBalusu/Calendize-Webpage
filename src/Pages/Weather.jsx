@@ -137,7 +137,6 @@ export default function Location() {
 
     return (
         <>
-            <Navbar title={"Weather"} />
             <div className="housing">
                 <div className="subHolder">
                     <div className="GetUserLocation">

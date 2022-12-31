@@ -192,6 +192,7 @@ textarea {
 	margin-left: 40px;
 	align-self: center;
 	text-align: center;
+	z-index: 0;
 }
 
 .selectDate-holder label {

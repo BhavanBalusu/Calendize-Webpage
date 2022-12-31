@@ -35,9 +35,8 @@ function Navbar(props) {
     };
 
     const navigate = (direction) => {
-        nav("/" + direction);
         closeMenu();
-        return;
+        window.location.href = "#" + direction
     }
 
     useEffect(() => {
@@ -74,26 +73,20 @@ function Navbar(props) {
                             <i className="bi bi-x-lg"></i>
                         </button>
                     </div>
-                    <button className="menu-button" onClick={() => { navigate("dash") }}>
-                        Home
-                    </button>
-                    <button className="menu-button" onClick={() => { navigate("weather") }}>
+                    <button className="menu-button" onClick={() => { navigate("weather-label") }}>
                         Weather
                     </button>
-                    <button className="menu-button" onClick={() => { navigate("Layouts") }}>
+                    <button className="menu-button" onClick={() => { navigate("layouts-label") }}>
                         Layouts
                     </button>
-                    <button className="menu-button" onClick={() => { navigate("events") }}>
+                    <button className="menu-button" onClick={() => { navigate("events-label") }}>
                         Events
                     </button>
-                    <button className="menu-button" onClick={() => { navigate("photo") }}>
-                        Photos
+                    <button className="menu-button" onClick={() => { navigate("calendar-label") }}>
+                        iCal Links
                     </button>
-                    <button className="menu-button" onClick={() => { navigate("calendar") }}>
-                        Calendar
-                    </button>
-                    <button className="menu-button" onClick={() => { navigate("news") }}>
-                        News
+                    <button className="menu-button" onClick={() => { navigate("news-label") }}>
+                        RSS Links
                     </button>
                     <button className="menus-button special" onClick={() => { logout(); nav("/") }}>
                         Log out

@@ -78,9 +78,6 @@ export default function Calendar() {
 
     return (
         <div>
-            <Navbar title="Calendar" />
-
-
             <div className="rssPage-holder">
                 <div className="link-submit-holder">
                     <form onSubmit={(e) => { e.preventDefault(); submit() }}>
