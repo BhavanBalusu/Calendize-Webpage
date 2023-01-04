@@ -10,7 +10,7 @@ function News() {
     const [rssArr, setRssArr] = useState([]); // holds the rss links
     const [arrChange, setArrChange] = useState(false)
     const [nameArr, setNameArr] = useState([]);
-    const[name, setName] = useState("");
+    const [name, setName] = useState("");
     const [user, setUser] = useState()
     const linkInput = useRef()
 
@@ -63,7 +63,7 @@ function News() {
                 }
                 else {
                     setLink("")
-                    alert("Only 5 Rss Links allowed")
+                    alert("Only 4 Rss Links allowed")
                     linkInput.current.value = ''
                 }
 

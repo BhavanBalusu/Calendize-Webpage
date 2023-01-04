@@ -9,7 +9,8 @@ import { useEffect, useState } from "react";
 export default function Calendar() {
 
     const link = useRef();
-    const [links, setLinks] = useState([])
+    const linkName = useRef();
+    const [links, setLinks] = useState({})
     const [currUser, loading] = useAuthState(auth);
     const [user, setUser] = useState("")
 
@@ -29,12 +30,13 @@ export default function Calendar() {
             );
             const theDoc = await getDocs(q);
             setUser(theDoc.docs[0].id)
-            let newLinks = [...links, link.current.value]
-            if (newLinks.length <= 5) {
+            let name = linkName.current.value
+            let newLinks = { ...links, [name]: link.current.value }
+            if (Object.keys(newLinks).length <= 4) {
                 await updateDoc(doc(db, 'users', theDoc.docs[0].id), { iCalLinks: newLinks })
                 setLinks(newLinks)
             } else {
-                alert("Only 5 iCal links allowed.")
+                alert("Only 4 iCal links allowed.")
             }
             link.current.value = ''
 
@@ -87,6 +89,7 @@ export default function Calendar() {
                         </h1>
 
                         <input className="input-rss" type="url" ref={link} placeholder="iCal link" />
+                        <input className="input-rss" type="text" ref={linkName} placeholder="Link name" />
                         <button className="rss-submit" type="submit">Submit</button>
                     </form>
                 </div>
@@ -97,13 +100,12 @@ export default function Calendar() {
                     </div>
 
                     <div className="rss-housing">
-                        {links.map((value, index) =>
+                        {Object.keys(links).map((value, index) =>
                             <div className="link-holder" key={index}>
                                 <h3>{value}</h3>
                                 <i class="bi bi-trash3" onClick={async () => {
-                                    let newArr = [...links]
-                                    newArr.splice(index, 1)
-                                    await setLinks(newArr)
+                                    let newArr = { ...links }
+                                    delete newArr[value]
                                     await updateDoc(doc(db, 'users', user), { iCalLinks: newArr })
                                 }}></i>
                             </div>)}
@@ -111,9 +113,6 @@ export default function Calendar() {
                 </div>
 
             </div>
-
-
-
         </div>
 
 
