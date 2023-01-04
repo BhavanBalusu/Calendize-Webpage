@@ -9,6 +9,8 @@ function News() {
     const [link, setLink] = useState("")
     const [rssArr, setRssArr] = useState([]); // holds the rss links
     const [arrChange, setArrChange] = useState(false)
+    const [nameArr, setNameArr] = useState([]);
+    const[name, setName] = useState("");
     const [user, setUser] = useState()
     const linkInput = useRef()
 

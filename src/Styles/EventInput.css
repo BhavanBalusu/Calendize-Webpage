@@ -1,9 +1,14 @@
 .event-input {
+	margin-top: 20px;
 	margin-left: 20px;
 	display: flex;
 	flex-direction: column;
 }
 
+.event-input label{
+	font-weight: 500;
+	color: gray;
+}
 .header {
 	font-size: 30px;
 	text-align: center;
@@ -13,15 +18,19 @@
 }
 
 .event-holder-box {
-	box-shadow: 4px 1px 40px 2px rgb(197, 189, 189);
+	position: relative;
+	top:-655px;
+	left: 80px;
+	box-shadow: 1px 1px 40px 2px rgb(71, 71, 71);
 	padding-top: 20px;
 	padding-left: 20px;
 	padding-right: 50px;
-	border-radius: 60px;
+	padding-bottom: 20px;
+	border-radius: 15px;
 	width: 450px;
 	background: white;
-	height: 670px;
-	margin-bottom: 80px;
+	height: 500px;
+	visibility:hidden;
 }
 
 .event.times {
@@ -45,19 +54,28 @@
 	color: black;
 }
 
-.event.timings #startTime {
+#endTime.event.time{
 	border-radius: 10px;
-	margin-top: 20px;
+	margin-top: 10px;
+	background: white;
+	border: 1px solid rgb(224, 222, 222);
 	/* width: 145px; */
 }
 
-.event.endTime {
+#startTime.event.time{
+	border-radius: 10px;
+	margin-top: 10px;
+	background: white;
+	border: 1px solid rgb(224, 222, 222);
+}
+
+/* .event.endTime {
 	margin-top: 20px;
 	display: flex;
 	flex-direction: row;
 	text-align: center;
 	justify-content: space-between;
-}
+} */
 
 .event.endTime input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -70,11 +88,12 @@ input::-webkit-inner-spin-button {
 }
 
 .event.name {
-	margin-top: 40px;
 	padding: 1px;
 	width: 430px;
 	padding-left: 10px;
-	border-radius: 10px;
+	border: 1px solid rgb(219, 216, 216);
+	background: white;
+	/* border-radius: 10px; */
 }
 
 .event.entTime #end-time-hours {
@@ -119,6 +138,7 @@ input::-webkit-inner-spin-button {
 }
 
 .event-input input {
+	outline: none;
 	border-radius: 10px;
 	width: 375px;
 	border-radius: 0px;
@@ -127,12 +147,14 @@ input::-webkit-inner-spin-button {
 .event.details {
 	/* box-shadow: 0px 2px 40px 3px rgb(199, 194, 194); */
 	resize: none;
+	outline: none;
 	padding: 7px;
 	padding-left: 10px;
-	border-radius: 10px;
 	font-size: 15px;
+	background: white;
+	border: 1px solid rgb(219, 216, 216);
 	width: 425px;
-	height: 225px;
+	height: 125px;
 }
 
 .event-input .submitButton {
@@ -141,21 +163,22 @@ input::-webkit-inner-spin-button {
 	border: none;
 	border-radius: 10px;
 	height: 45px;
-	background: linear-gradient(
+	/* background: linear-gradient(
 		to right,
 		rgb(103, 35, 170),
 		rgb(199, 111, 234)
-	);
+	); */
+	background: rgb(149, 75, 223);
 	color: white;
 	margin-left: 100px;
 	cursor: pointer;
 	margin-top: 20px;
 	/* box-shadow: 0px 5px 20px 5px rgb(196, 147, 221); */
-	transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+	/* transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); */
 }
 
 .event-input .submitButton:hover {
-	background: linear-gradient(to right, rgb(92, 31, 153), rgb(160, 89, 188));
+	background: rgb(117, 76, 159);
 }
 
 .event-input label {
@@ -172,26 +195,32 @@ input::-webkit-inner-spin-button {
 	margin-left: 130px;
 	color: red;
 	display: none;
-	transition: all 0.2s ease;
+	/* transition: all 0.2s ease; */
 }
 
 .event-holder-box input,
 select,
 textarea {
-	border-radius: 10px;
-	color: rgb(0, 0, 0);
-	outline: none;
+	margin-top: 10px;
+	border: 1px solid rgb(219, 216, 216);
+	background: white;
 	border: 0px;
+	color: gray;
+	border-radius: 10px;
 	background: rgb(239, 240, 240);
 	/* box-shadow: 0px 2px 40px 3px rgb(69, 68, 68); */
 	box-shadow: none;
 }
 
+
 .event-holder-box .datePicker {
 	width: 100px;
-	margin-left: 40px;
 	align-self: center;
+	border-radius: 10px;
+	margin-top: 10px;
 	text-align: center;
+	background: white;
+	border: 1px solid rgb(230, 224, 224);
 	z-index: 0;
 }
 
@@ -204,6 +233,86 @@ textarea {
 
 .selectDate-holder {
 	margin-top: 20px;
+	max-height: 100px;
 	display: flex;
 	flex-direction: row;
+}
+
+.temp-holder{
+	position: relative;
+	max-width: 33%;
+}
+
+.react-datepicker__header{
+	background: white;
+	border: none;
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--keyboard-selected{
+	background: rgb(161, 47, 222);
+	border-radius: 20px;
+	
+}
+.react-datepicker__day:hover{
+	background: rgb(208, 154, 233);
+	border-radius: 20px;
+	color: white;
+}
+
+.react-datepicker__month-container{
+	border-radius: 10px;
+	box-shadow: 4px 1px 40px 2px rgb(197, 189, 189);
+}
+
+button.react-datepicker__navigation--next{
+	font-weight: 300;
+	color: blue;
+	font-size: 10px;
+}
+
+.react-datepicker__triangle{
+	background: transparent;
+}
+
+.event-holder-box label{
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+.event.time{
+	width: 100px;
+}
+
+.event.timings label{
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+.create-event{
+	font-weight: 800;
+}
+
+.event-holder-temp-box i{
+	margin-left: 450px;
+	font-size: 25px;
+	position: relative;
+	top: -45px;
+	left: 30px;
+	background: rgb(135, 135, 232);
+	color: white;
+	padding-left: 2px;
+	padding-right: 2px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+.event-holder-temp-box i:hover{
+	background: rgb(114, 114, 234);
+}
+
+@media screen and (max-width: 1350px) {
+
+	#subhousing{
+		margin-left: 40px;
+	}
 }

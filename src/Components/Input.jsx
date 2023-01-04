@@ -102,6 +102,7 @@ export default function Input() {
 
             const invalid = document.querySelector(".invalidData");
             invalid.style.display = 'none';
+            closePopUp();
 
         } else {
             if (name === '') {
@@ -133,6 +134,10 @@ export default function Input() {
         e.target.style.border = "1px solid rgba(0, 0, 0, 0.2)";
     }
 
+    function preventDefault(e) {
+        e.preventDefault();
+      }
+
     function setDefaultBorderAll() {
         let elements = [document.querySelector("#eventName"), document.querySelector(".datePicker"),
         document.querySelector("#endTime"), document.querySelector("#startTime")]
@@ -140,38 +145,52 @@ export default function Input() {
         elements.forEach(ele => ele.style.border = '1px solid rgba(0, 0, 0, 0.2)')
     }
 
+    const closePopUp = () => {
+        var popup = document.getElementsByClassName("event-holder-box")[0];
+        popup.style.visibility = 'hidden'
+        popup.style.display = 'none'
+    }
+
 
     return (
-        <div className="event-holder-box">
-            <label className="header">
-                Add
-            </label>
-            <form action="" onSubmit={e => submitData(e)} className="event-input">
-                <input type="text" onChange={e => { e.preventDefault(); setName(e.target.value); setDefaultBorder(e) }} className="event name" id="eventName" placeholder="Title" />
-                <textarea className="event details" onChange={e => { e.preventDefault(); setDetails(e.target.value); setDefaultBorder(e) }} placeholder="Details"></textarea>
-
-                <div className="selectDate-holder">
-                    <label>Select Date:</label>
-                    <DatePicker selected={day} onChange={day => {
-                        setDay(day);
-                        const dateElement = document.querySelector(".datePicker")
-                        dateElement.style.border = 'none'
-                    }} name="Date" className="datePicker" />
+        <div >
+            <div className="event-holder-box">
+                <div className="event-holder-temp-box">
+                    <label className="create-event">Create Event</label>
+                    <i onClick={()=>{closePopUp()}} class="bi bi-x"></i>
                 </div>
+                
+                <form action="" onSubmit={e => submitData(e)} className="event-input">
+                    <label>Title</label>
+                    <input type="text" onChange={e => { e.preventDefault(); setName(e.target.value); setDefaultBorder(e) }} className="event name" id="eventName" placeholder="Title" />
+                    <label>Details</label>
+                    <textarea className="event details" onChange={e => { e.preventDefault(); setDetails(e.target.value); setDefaultBorder(e) }} placeholder="Details"></textarea>
 
-                <div className="event timings">
-                    <label htmlFor="start-time">Start time:</label>
-                    <input type="time" name="start-time" onChange={e => { e.preventDefault(); setStartTime(e.target.value); setDefaultBorder(e) }}
-                        className="event time" id="startTime" />
-                    <label htmlFor="end-time">End time:</label>
-                    <input name="end-time" type="time" id="endTime" min="0"
-                        onChange={e => { e.preventDefault(); setEndTime(e.target.value); setDefaultBorder(e) }} />
-                </div>
-
-                <button className="submitButton" type="submit">Add</button>
-                <p className="invalidData">Error: Invalid Data!</p>
-            </form>
+                    <div className="selectDate-holder">
+                        <div className="temp-holder">
+                            <label>Day</label>
+                            <DatePicker selected={day} onChange={day => {
+                                setDay(day);
+                                const dateElement = document.querySelector(".datePicker")
+                                dateElement.style.border = 'none'
+                            }} name="Date" className="datePicker" />
+                        </div>
+                        <div className="temp-holder">
+                            <label htmlFor="start-time">Time-From </label>
+                            <input type="time" name="start-time" onChange={e => { e.preventDefault(); setStartTime(e.target.value); setDefaultBorder(e) }}
+                                className="event time" id="startTime" />
+                        </div>
+                        <div className="temp-holder">
+                            <label htmlFor="end-time">Time-To </label>
+                            <input className="event time" name="end-time" type="time" id="endTime" min="0"
+                                onChange={e => { e.preventDefault(); setEndTime(e.target.value); setDefaultBorder(e) }} />
+                        </div>
+                    </div>
+                    <button className="submitButton" type="submit">Create</button>
+                    <p className="invalidData">Error: Invalid Data!</p>
+                </form>
+            </div>
         </div>
-
+    
     )
 }

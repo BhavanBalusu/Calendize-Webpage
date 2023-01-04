@@ -4,6 +4,7 @@ import { db, auth } from "../firebase";
 import { collection, query, onSnapshot, where, getDocs, orderBy, deleteDoc, doc } from "firebase/firestore";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Event from "./Event";
+import Input from "../Components/Input";
 import '../Styles/EventsHolder.css'
 
 
@@ -56,16 +57,30 @@ export default function EventsHolder() {
 
     }, [user, currUser])
 
+    const openPopUp = () => {
+        
+        var popup = document.getElementsByClassName("event-holder-box")[0];
+        popup.style.visibility = 'visible'
+        popup.style.display = 'block'
+    }
+
     return (
         <div >
             <div id="subhousing">
-                <label className="headers">
-                    Added Events
-                </label>
+                <div className='label'>
+                    <button className="plus" onClick={()=>openPopUp()}>
+                    <i class="bi bi-plus-lg"></i>  
+                    </button>
+                    <label className="headers">
+                        Calendar Plan
+                    </label>
+                    
+                </div>
                 <div className="inside">
                     {events.map((event, index) => <Event className="event" event={event} props={event} id={event.docID} key={index} />)}
                 </div>
             </div>
+            <Input/>
         </div>
     )
 

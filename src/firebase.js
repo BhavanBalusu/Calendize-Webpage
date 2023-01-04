@@ -49,7 +49,8 @@ const register = async (name, email, password) => {
 			email,
 			location: "None",
 			iCalLinks: [],
-			rssLinks: []
+			rssLinks: [],
+			rssNameLinks: []
 		});
 	} catch (err) {
 		console.log(err);

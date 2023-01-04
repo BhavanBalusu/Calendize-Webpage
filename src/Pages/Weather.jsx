@@ -108,13 +108,14 @@ export default function Location() {
             setLoc(locRef.current.value.trim())
             wrong.style.display = "none"
             await addToDB(locRef.current.value.trim())
-
+            closePopUp();
         }
         else {
             wrong.style.display = "block"
             const inp = document.querySelector(".locationInput")
             inp.style.border = "1px solid red";
         }
+        locRef.current.value = ""
     }
 
     const addToDB = async (val) => {
@@ -134,13 +135,27 @@ export default function Location() {
             alert("Unable to save location.")
         }
     }
+    const openPopUp = () => {
+        
+        var popup = document.getElementsByClassName("subholder")[0];
+        popup.style.visibility = 'visible'
+        popup.style.display = 'block'
+    }
+
+    const closePopUp = () => {
+        var popup = document.getElementsByClassName("subHolder")[0];
+        popup.style.visibility = 'hidden'
+        popup.style.display = 'none'
+    }
 
     return (
         <>
-            <div className="housing">
+            <div className="housing-weather">
+                <div className="widget"> <Widget /></div>
                 <div className="subHolder">
                     <div className="GetUserLocation">
-                        <h1 className="weather-label">Location for Weather: {loc} </h1>
+                        <i onClick={()=>{closePopUp()}} class="bi bi-x"></i>
+                        <h1 className="weather-label">Location for Weather: {loc}</h1>
                         <button className="Dummy" onClick={(e) => getLocation(e)}>Request Location</button>
                         <p className="or"> OR</p>
                         <h2>Want to type your city in instead?</h2>
@@ -152,7 +167,6 @@ export default function Location() {
                     </div>
                     <p className="wrong">Error: Invalid Data!</p>
                 </div>
-                <div className="widget"> <Widget /></div>
             </div>
         </>
     )

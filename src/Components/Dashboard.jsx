@@ -10,14 +10,18 @@ function Dashboard(props) {
   return (
     <div className='dashPage'>
       <Navbar title="Dashboard" />
-      <h2 className='labelTitle' id="events-label">Manage Events</h2>
-      <Events />
-      <h2 className='labelTitle' id="calendar-label">Manage iCal Links</h2>
-      <Calendar />
-      <h2 className='labelTitle' id="weather-label">Weather</h2>
-      <Location />
-      <h2 className='labelTitle' id="news-label">Manage RSS Links</h2>
-      <News />
+      <div>
+        <Location />
+      </div>
+      <div>
+        <div>
+          <Events />
+        </div>
+      </div>
+      <div>
+        <Calendar />
+        <News />
+      </div>
     </div>
   );
 }

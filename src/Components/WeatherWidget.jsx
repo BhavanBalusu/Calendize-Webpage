@@ -4,13 +4,26 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from "../firebase";
 import '../Styles/Weather.css';
 
+
+const openPopUp = () => {
+        
+  var popup = document.getElementsByClassName("subHolder")[0];
+  popup.style.visibility = 'visible'
+  popup.style.display = 'block'
+}
+
 const IncorrectData = () => {
   return (
     <div className="weather noloc">
-      <h2 className="noLocation" style={{ color: "white" }}>Sorry, no location found</h2>
+      <div className="weathers">
+        <i onClick={()=>{openPopUp()}} class="bi bi-pencil-fill"></i>
+      </div> 
+      <h2 className="noLocation" style={{ color: "Black" }}>Sorry, no location found</h2>
     </div>
   );
 };
+
+
 
 export default function WeatherWidget() {
   const [temp, setTemp] = useState();
@@ -20,6 +33,10 @@ export default function WeatherWidget() {
   const [valid, setValid] = useState(false);
   const [currUser] = useAuthState(auth);
   const [theLoc, setLoc] = useState();
+  const [des, setDes] = useState("");
+
+
+  
 
   useEffect(() => {
     const func = async () => {
@@ -72,6 +89,7 @@ export default function WeatherWidget() {
       setHighTemp(convertF(data.main.temp_max));
       setLowTemp(convertF(data.main.temp_min));
       setImg(`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+      setDes(`${data.weather[0].description}`.toUpperCase());
     }
   }
 
@@ -103,24 +121,23 @@ export default function WeatherWidget() {
     return <div />
   }
 
+
   return (
-    <div className="weather" style={{ color: "White" }}>
+    <div className="weather" >
       <p className="cityName">
-        Weather in {theLoc}
+        <i class="bi bi-geo-fill"></i> {theLoc}
+        <i class="bi bi-pencil-fill" onClick={()=>openPopUp()}></i>
       </p>
       <div className="tempInfo">
         <h2 className="temp">{temp}˚F</h2>
-        <div>
-          <div className="moreInfo">
-            <img src={img} alt="" width="100%" />
-          </div>
-
-          <div className="minmax">
+        <div className="moreInfo">
+          <img src={img} alt="" width="40%" />
+          <p className="minmax">
             {highTemp}˚F / {lowTemp}˚F
-          </div>
+          </p>
         </div>
-
       </div>
+      <p id='des'>{des}</p>
     </div>
   );
 }

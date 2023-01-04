@@ -58,11 +58,13 @@ function Navbar(props) {
                     Welcome, <span>{userName.indexOf(" ") !== -1 ? userName.substring(0, userName.indexOf(" ")) : userName}</span>
                 </div>
                 <div className="page" >{props.title}</div>
-                <button className="burger" onClick={handleToggle} >
-                    <i className="bi bi-list"></i>
-                </button>
+                <div className='logout'>
+                    <button className=" special" onClick={() => { logout(); nav("/") }}>
+                        Log out
+                    </button>
+                </div>
             </div>
-            <div className={`menuNav ${navbarOpen ? " showMenu" : " closeMenu"}`}>
+            {/* <div className={`menuNav ${navbarOpen ? " showMenu" : " closeMenu"}`}>
                 <div className='menuButt-holder'>
                     <div className='top-holder'>
                         <img src={logo} />
@@ -92,7 +94,7 @@ function Navbar(props) {
                         Log out
                     </button>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }
