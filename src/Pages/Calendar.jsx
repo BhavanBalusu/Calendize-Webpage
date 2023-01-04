@@ -39,6 +39,7 @@ export default function Calendar() {
                 alert("Only 4 iCal links allowed.")
             }
             link.current.value = ''
+            linkName.current.value = ''
 
         } catch (e) {
             console.log(e)
