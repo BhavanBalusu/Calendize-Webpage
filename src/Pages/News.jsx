@@ -18,7 +18,7 @@ export default function News() {
         if (loading)
             return;
 
-        if (link.current.value === '')
+        if (link.current.value === '' || linkName.current.value.trim() === '' )
             return;
 
         if (loading)
@@ -40,7 +40,7 @@ export default function News() {
             }
             link.current.value = ''
             linkName.current.value = ''
-
+            closePopUp();
         } catch (e) {
             console.log(e)
         }
@@ -79,10 +79,46 @@ export default function News() {
 
     }, [currUser, user])
 
+    const closePopUp = () => {
+        var popup = document.getElementsByClassName("link-submit-holder rss")[0];
+        popup.style.visibility = 'hidden'
+        popup.style.display = 'none'
+    }
+
+    const openPopUp = () => {
+        
+        var popup = document.getElementsByClassName("link-submit-holder rss")[0];
+        popup.style.visibility = 'visible'
+        popup.style.display = 'block'
+    }
+
     return (
         <div>
-            <div className="rssPage-holder">
-                <div className="link-submit-holder">
+            <div className="rssPage-holder rss">
+
+                <div className="outside">
+                    <div className="temp-div rss">
+                        <h1>RSS Links</h1>
+                    </div>
+
+                    <div className="rss-housing">
+                        {Object.keys(links).map((value, index) =>
+                            <div className="icon-holdings" key={index}>
+                                <div className="link-holder" key={index}>
+                                    <h3>{value}</h3>
+                                </div>
+                                <i class="bi bi-trash3" onClick={async () => {
+                                    let newArr = { ...links }
+                                    delete newArr[value]
+                                    await updateDoc(doc(db, 'users', user), { rssLinks: newArr })
+                                }}></i>
+                            </div>)}
+                    </div>
+                    <i onClick={()=>{openPopUp()}} class="bi bi-plus-lg rss"></i>
+                </div>
+
+                <div className="link-submit-holder rss">
+                    <i onClick={()=>{closePopUp()}} class="bi bi-x"></i>
                     <form onSubmit={(e) => { e.preventDefault(); submit() }}>
                         <h1 className="rssLinkTitle">Import RSS Links
                             <h3>Use RSS Link to display news
@@ -93,24 +129,6 @@ export default function News() {
                         <input className="input-rss" type="text" ref={linkName} placeholder="Link name" />
                         <button className="rss-submit" type="submit">Submit</button>
                     </form>
-                </div>
-
-                <div className="outside">
-                    <div className="temp-div">
-                        RSS Links
-                    </div>
-
-                    <div className="rss-housing">
-                        {Object.keys(links).map((value, index) =>
-                            <div className="link-holder" key={index}>
-                                <h3>{value}</h3>
-                                <i class="bi bi-trash3" onClick={async () => {
-                                    let newArr = { ...links }
-                                    delete newArr[value]
-                                    await updateDoc(doc(db, 'users', user), { rssLinks: newArr })
-                                }}></i>
-                            </div>)}
-                    </div>
                 </div>
 
             </div>

@@ -19,9 +19,9 @@
 
 .event-holder-box {
 	position: relative;
-	top:-655px;
-	left: 80px;
-	box-shadow: 1px 1px 40px 2px rgb(71, 71, 71);
+	top:-705px;
+	left: 76px;
+	box-shadow: 1px 1px 40px 2px rgb(180, 179, 179);
 	padding-top: 20px;
 	padding-left: 20px;
 	padding-right: 50px;
@@ -30,6 +30,7 @@
 	width: 450px;
 	background: white;
 	height: 500px;
+	display: none;
 	visibility:hidden;
 }
 
@@ -105,6 +106,7 @@ input::-webkit-inner-spin-button {
 
 .react-datepicker {
 	border: none;
+	
 }
 
 .react-datepicker__popper {
@@ -168,9 +170,9 @@ input::-webkit-inner-spin-button {
 		rgb(103, 35, 170),
 		rgb(199, 111, 234)
 	); */
-	background: rgb(149, 75, 223);
+	background: rgb(113, 102, 233);
 	color: white;
-	margin-left: 100px;
+	margin-left: 115px;
 	cursor: pointer;
 	margin-top: 20px;
 	/* box-shadow: 0px 5px 20px 5px rgb(196, 147, 221); */
@@ -178,7 +180,7 @@ input::-webkit-inner-spin-button {
 }
 
 .event-input .submitButton:hover {
-	background: rgb(117, 76, 159);
+	background: rgb(75, 68, 156);
 }
 
 .event-input label {
@@ -290,15 +292,20 @@ button.react-datepicker__navigation--next{
 
 .create-event{
 	font-weight: 800;
+	padding-bottom: 0px;
+}
+
+.event-holder-temp-box{
+	height: 25px;
 }
 
 .event-holder-temp-box i{
 	margin-left: 450px;
 	font-size: 25px;
 	position: relative;
-	top: -45px;
+	top: -50px;
 	left: 30px;
-	background: rgb(135, 135, 232);
+	background: rgb(232, 79, 79);;
 	color: white;
 	padding-left: 2px;
 	padding-right: 2px;
@@ -307,12 +314,70 @@ button.react-datepicker__navigation--next{
 }
 
 .event-holder-temp-box i:hover{
-	background: rgb(114, 114, 234);
+	background: rgb(187, 51, 51);;
 }
 
-@media screen and (max-width: 1350px) {
 
-	#subhousing{
-		margin-left: 40px;
+
+@media screen and (max-width: 1700px) {
+
+	.event-holder-box{
+		position: relative;
+		left:90px;
+		width: 420px;
+	}
+
+	.event.name{
+		width: 400px;
+	}
+
+	.event.details{
+		width: 390px;
+	}
+
+	.event-holder-box .datePicker{
+		width: 80px;
+	}
+	.event.time{
+		width: 80px;
+	}
+
+	.event-input .submitButton{
+		margin-left: 90px;
+	}
+
+	.event-holder-temp-box i{
+		left: 6px;
+	}
+
+}
+
+@media screen and (max-width: 1300px) {
+	.event-holder-box{
+		position: relative;
+		left: 50px;
+		width: 420px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.event-holder-box{
+		position: relative;
+		left: -10px;
+		width: 400px;
+		margin-left: 150px;
+	}
+
+	.event-holder-temp-box i{
+		left: -20px;
+	}
+
+	.event-input{
+		margin-left: 7px;
+		margin-top: 10px;
+	}
+
+	.event-input .submitButton{
+		margin-left: 100px;
 	}
 }

@@ -8,21 +8,21 @@ import Calendar from '../Pages/Calendar';
 
 function Dashboard(props) {
   return (
-    <div className='dashPage'>
+    <>
       <Navbar title="Dashboard" />
-      <div>
-        <Location />
-      </div>
-      <div>
-        <div>
-          <Events />
+      <div className='dashPage'>
+        <div className='column one'>
+          <Location />
+        </div>
+        <div className='column two'>
+          <Calendar />
+          <News />
+        </div>
+        <div className='column three' style={{height:"700px"}}>
+            <Events/>
         </div>
       </div>
-      <div>
-        <Calendar />
-        <News />
-      </div>
-    </div>
+    </>
   );
 }
 export default Dashboard;

@@ -65,7 +65,7 @@ export default function EventsHolder() {
     }
 
     return (
-        <div >
+        <div className="housing-temp" >
             <div id="subhousing">
                 <div className='label'>
                     <button className="plus" onClick={()=>openPopUp()}>

@@ -1,21 +1,49 @@
 .rssPage-holder {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background: transparent;
     align-self: center;
+    height: 470px;
+    position: relative;
+    top:-20px;
+    margin-top: 0px;
+}
 
+.rssPage-holder.rss{
+    position: relative;
 }
 
 
 .outside {
     align-self: center;
-    margin-top: 60px;
-    margin-left: 12vw;
+    margin-top: 40px;
     min-height: 200px;
 }
 
+div.link-submit-holder.rss{
+    height: 600px;
+    position: relative;
+    left: -10px;
+    top: -110px;
+}
+
 .rss-housing {
+    background: white;
+    display: grid;
+    height: 170px;
+    grid-template-columns: 200px 40px;
+    grid-row: auto auto;
+    grid-column-gap: 40px;
+    grid-row-gap: 20px;
     text-align: center;
+    margin: 0px 0px 0px 30px;
+    position: relative;
+    top: 0px;
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    width: 480px;
+    border-radius: 0px 0px 20px 20px;
 
 }
 
@@ -26,12 +54,12 @@
 
 }
 
+
 .temp-div {
-    width: 480px;
+    width: 400px;
     font-size: 30px;
     font-weight: 500;
     color: rgb(138, 131, 131);
-    margin-bottom: 30px;
     text-align: center;
 }
 
@@ -41,29 +69,31 @@
     word-wrap: break-word;
     flex-direction: row;
     font-size: 15px;
-    width: 480px;
-    min-height: 55px;
+    width: 180px;
+    height: 35px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 15px;
     padding-bottom: 15px;
     text-align: left;
+    position: relative;
     background: rgb(255, 253, 253);
     /* box-shadow: 4px 1px 40px 2px rgb(197, 189, 189); */
-    margin-bottom: 20px;
+    box-shadow: 1px 1px 40px 10px rgba(150, 150, 156, 0.2);
     border-radius: 15px;
 }
 
 .link-holder h3 {
-    width: 440px;
+    width: 180px;
+    height: 40px;
+    text-align: center;
+    overflow: hidden;
 }
 
 .rssLinkTitle h3 {
     align-self: center;
     text-align: center;
     font-size: 15px;
-    width: 370px;
-    margin-left: 70px;
 }
 
 .bi.bi-trash3 {
@@ -73,26 +103,32 @@
     position: relative;
     padding-top: 10px;
     height: 30px;
-    color: rgb(13, 53, 228);
+    color: rgb(241, 101, 101);
+    /* background: white; */
     border-radius: 10px;
-    font-size: 23px;
+    font-size: 20px;
     padding-left: 6px;
     padding-right: 6px;
     padding-bottom: 5px;
+    position: relative;
+    top: -75px;
+    cursor: pointer;
+    left: 90px;
 }
 
 .bi.bi-trash3:hover {
-    background: rgb(231, 240, 245);
+    color: rgb(177, 71, 71);
 }
 
 .link-submit-holder {
-    margin-left: 8vw;
-    margin-top: 80px;
+    position: relative;
     background: white;
     width: 500px;
-    height: 300px;
+    height: 310px;
+    margin-left: 25px;
+    top: -120px;
     justify-content: center;
-    border-radius: 40px;
+    border-radius: 20px;
     box-shadow: 4px 1px 40px 2px rgb(197, 189, 189);
     align-self: center;
 }
@@ -103,7 +139,6 @@
 }
 
 .rssLinkTitle {
-    margin-top: 55px;
     margin-bottom: 30px;
     font-size: 30px;
     text-align: center;
@@ -113,12 +148,13 @@
 
 .link-submit-holder input {
     margin-left: 85px;
-    background: rgb(238, 237, 237);
+    background: white;
+    border: 1px solid rgb(203, 202, 202);
     color: rgb(8, 8, 8);
     width: 300px;
     box-shadow: none;
     outline: none;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 
@@ -129,29 +165,175 @@
     margin-left: 115px;
     font-size: 15px;
     border: none;
-    color: rgb(235, 240, 243);
-    background: linear-gradient(to right, rgb(103, 35, 170), rgb(199, 111, 234));
+    color: rgb(255, 255, 255);
+    background: rgb(102, 194, 215);
     border-radius: 15px;
-    transition: all 2s;
     cursor: pointer;
+    margin-bottom: 30px;
 }
 
 .rss-submit:hover {
-    background: linear-gradient(to right, rgb(92, 31, 153), rgb(160, 89, 188));
+    background:  rgb(72, 142, 157);
 }
 
-@media screen and (max-width:1300px) {
-    .rssPage-holder {
-        flex-direction: column-reverse;
+.rss-submit.ical{
+    background: rgb(236, 126, 118);
+}
+
+.rss-submit.ical:hover {
+    background: rgb(187, 98, 92);
+}
+
+
+.link-submit-holder{
+    display: none;
+	visibility: hidden;
+}
+
+.temp-div.ical{
+    background: linear-gradient(to right, rgb(187, 78, 68), rgb(245, 161, 161));
+    border-radius: 15px 50px 15px 50px;
+	width: 550px;
+    text-align: center;
+	height: 140px;
+}
+
+.link-submit-holder.ical{
+    left: -10px;
+}
+
+.temp-div.rss{
+    background: linear-gradient(to right, rgb(96, 158, 184), rgb(187, 235, 254));
+    /* background: linear-gradient(to right, rgb(177, 158, 79), rgb(253, 241, 19)); */
+    /* background: linear-gradient(to right, rgb(177, 87, 79), rgb(245, 161, 161)); */
+    border-radius: 15px 50px 15px 50px;
+	width: 550px;
+    text-align: center;
+	height: 140px;
+}
+
+.temp-div h1{
+    font-size: 30px;
+    font-weight: 800;
+    color: white;
+    padding-top: 50px;
+}
+
+.icon-holdings{
+    width: 240px;
+    height: 55px;
+}
+
+.rssPage-holder .bi.bi-plus-lg{
+    background: white;
+    padding: 5px 8px 5px 8px;
+    border-radius: 40px;
+    position: relative;
+    cursor: pointer;
+    top: -260px;
+    color: rgb(221, 151, 148);
+    font-size: 40px;
+    font-weight: 300;
+    margin: 0px 0px 0px 0px;
+    box-shadow: 12px 12px 40px 10px rgba(220, 53, 16, 0.2);
+}
+
+
+.rssPage-holder .bi.bi-plus-lg:hover{
+    background: rgb(240, 239, 239);
+}
+
+.rssPage-holder .bi.bi-plus-lg.rss{
+    color: rgb(148, 205, 221);
+    box-shadow: 12px 12px 40px 10px rgba(16, 186, 220, 0.2);
+}
+.link-submit-holder i{
+    position: relative;
+    left: 475px;
+    color: white;
+    font-size: 25px;
+    top: -10px;
+    cursor: pointer;
+    background: rgb(232, 79, 79);
+    border-radius: 40px;
+    padding: 0px 2px 0px 2px;
+}
+
+.link-submit-holder i:hover{
+    background: rgb(198, 53, 53);
+}
+
+/* @media screen and (max-width: 1700px) {
+    .link-submit-holder.ical{
+        position: relative;
+        left: 120px;
+    }
+} */
+@media screen and (max-width: 700px) {
+    .column.two{
+        margin-top: 0px;
+        margin-left: 30px;;
+    }
+    .temp-div.ical {
+        width: 475px;
+    }
+    .temp-div.rss {
+        width: 475px;
+        margin-top: 100px;
     }
 
-    .outside {
-        margin-left: 0vw;
-        margin-bottom: 100px;
+    .rss-housing{
+        display: flex;
+        /* justify-content: center; */
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 30px 10px 0px 10px;
+        width: 400px;
+        height: 350px;
     }
 
-    .link-submit-holder {
-        margin-left: 0vw;
-        margin-bottom: 400px;
+    .icon-holdings{
+        padding-bottom: 10px;
+        width: 310px;
+        text-align: center;
+        margin-left: 25px;
+    }
+    .link-holder{
+        text-align: center;
+        width: 310px;
+    }
+
+    .link-holder h3{
+        width: 260px;
+        height: 20px;
+    }
+
+    .bi.bi-trash3{
+        left: 180px;
+    }
+
+    .rssPage-holder .bi.bi-plus-lg{
+        top:-420px;
+    }
+
+    .link-submit-holder{
+        width: 450px;
+        margin-left: 13px;
+    }
+
+    .link-submit-holder.rss{
+        position: relative;
+        margin-top: 100px;
+    }
+    .link-submit-holder i{
+        left:430px;
+    }
+
+    .link-submit-holder input {
+       margin-left: 60px;
+    }
+
+    .rss-submit{
+        margin-left: 90px;
     }
 }

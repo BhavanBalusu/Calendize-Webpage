@@ -32,3 +32,9 @@
 .links-holder p {
 	color: red;
 }
+
+.link-submit-holder{
+	display: none;
+	visibility: hidden;
+}
+

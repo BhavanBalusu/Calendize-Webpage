@@ -124,9 +124,9 @@ export default function WeatherWidget() {
 
   return (
     <div className="weather" >
+      <i class="bi bi-pencil-fill" onClick={()=>openPopUp()}></i>
       <p className="cityName">
         <i class="bi bi-geo-fill"></i> {theLoc}
-        <i class="bi bi-pencil-fill" onClick={()=>openPopUp()}></i>
       </p>
       <div className="tempInfo">
         <h2 className="temp">{temp}˚F</h2>

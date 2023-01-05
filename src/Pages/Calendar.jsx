@@ -18,7 +18,7 @@ export default function Calendar() {
         if (loading)
             return;
 
-        if (link.current.value === '')
+        if (link.current.value === '' || linkName.current.value.trim() === '' )
             return;
 
         if (loading)
@@ -35,11 +35,13 @@ export default function Calendar() {
             if (Object.keys(newLinks).length <= 4) {
                 await updateDoc(doc(db, 'users', theDoc.docs[0].id), { iCalLinks: newLinks })
                 setLinks(newLinks)
+                
             } else {
                 alert("Only 4 iCal links allowed.")
             }
             link.current.value = ''
             linkName.current.value = ''
+            closePopUp();
 
         } catch (e) {
             console.log(e)
@@ -79,10 +81,43 @@ export default function Calendar() {
 
     }, [currUser, user])
 
+    const closePopUp = () => {
+        var popup = document.getElementsByClassName("link-submit-holder ical")[0];
+        popup.style.visibility = 'hidden'
+        popup.style.display = 'none'
+    }
+
+    const openPopUp = () => {
+        
+        var popup = document.getElementsByClassName("link-submit-holder ical")[0];
+        popup.style.visibility = 'visible'
+        popup.style.display = 'block'
+    }
+
     return (
         <div>
             <div className="rssPage-holder">
-                <div className="link-submit-holder">
+                <div className="outside">
+                    <div className="temp-div ical">
+                        <h1>iCal Links</h1>
+                    </div>
+                    <div className="rss-housing">
+                        {Object.keys(links).map((value, index) =>
+                            <div className="icon-holdings">
+                                <div className="link-holder" key={index}>
+                                    <h3>{value}</h3>
+                                </div>
+                                <i class="bi bi-trash3" onClick={async () => {
+                                    let newArr = { ...links }
+                                    delete newArr[value]
+                                    await updateDoc(doc(db, 'users', user), { iCalLinks: newArr })
+                                }}></i>
+                            </div>)}
+                    </div>
+                    <i onClick={()=>{openPopUp()}} class="bi bi-plus-lg"></i>
+                </div>
+                <div className="link-submit-holder ical">
+                    <i onClick={()=>{closePopUp()}} class="bi bi-x"></i>
                     <form onSubmit={(e) => { e.preventDefault(); submit() }}>
                         <h1 className="rssLinkTitle">Import iCal Links
                             <h3>Import events from another calendar using an iCal Link
@@ -91,26 +126,8 @@ export default function Calendar() {
 
                         <input className="input-rss" type="url" ref={link} placeholder="iCal link" />
                         <input className="input-rss" type="text" ref={linkName} placeholder="Link name" />
-                        <button className="rss-submit" type="submit">Submit</button>
+                        <button className="rss-submit ical" type="submit">Submit</button>
                     </form>
-                </div>
-
-                <div className="outside">
-                    <div className="temp-div">
-                        iCal Links
-                    </div>
-
-                    <div className="rss-housing">
-                        {Object.keys(links).map((value, index) =>
-                            <div className="link-holder" key={index}>
-                                <h3>{value}</h3>
-                                <i class="bi bi-trash3" onClick={async () => {
-                                    let newArr = { ...links }
-                                    delete newArr[value]
-                                    await updateDoc(doc(db, 'users', user), { iCalLinks: newArr })
-                                }}></i>
-                            </div>)}
-                    </div>
                 </div>
 
             </div>
