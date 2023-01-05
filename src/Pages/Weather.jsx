@@ -101,17 +101,14 @@ export default function Location() {
 
     const submitData = async e => {
         e.preventDefault();
-        let wrong = document.querySelector(".wrong");
         let widg = document.querySelector(".widget");
 
         if (!nonAlpha(locRef.current.value.trim()) && locRef.current.value.trim() !== '') {
             setLoc(locRef.current.value.trim())
-            wrong.style.display = "none"
             await addToDB(locRef.current.value.trim())
             closePopUp();
         }
         else {
-            wrong.style.display = "block"
             const inp = document.querySelector(".locationInput")
             inp.style.border = "1px solid red";
         }
@@ -165,7 +162,6 @@ export default function Location() {
                         </form>
                         <p className="disclaimer">*Note: All cities may not be avaliable</p>
                     </div>
-                    <p className="wrong">Error: Invalid Data!</p>
                 </div>
             </div>
         </>
