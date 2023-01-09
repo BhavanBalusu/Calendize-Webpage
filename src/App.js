@@ -8,8 +8,8 @@ import Events from "./Pages/Events";
 import Weather from "./Pages/Weather";
 import { React, Fragment } from "react";
 import Home from "./Pages/Home";
-import Calendar from "./Pages/Calendar";
-import News from "./Pages/News";
+
+
 
 export default function App() {
 	return (
@@ -28,9 +28,9 @@ export default function App() {
 						path="/events"
 						element={<Events title="Manage Events" />}
 					/>
-					<Route path="/news" element={<News />} />
+					{/* <Route path="/news" element={<News />} />
 					<Route path="/weather" element={<Weather />} />;
-					<Route path="/calendar" element={<Calendar />} />
+					<Route path="/calendar" element={<Calendar />} /> */}
 				</Routes>
 			</Fragment>
 		</Router>

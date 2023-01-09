@@ -5,6 +5,7 @@ import Events from '../Pages/Events';
 import Location from '../Pages/Weather'
 import News from '../Pages/News'
 import Calendar from '../Pages/Calendar';
+import Layout from "./Layout";
 
 function Dashboard(props) {
   return (
@@ -13,6 +14,7 @@ function Dashboard(props) {
       <div className='dashPage'>
         <div className='column one'>
           <Location />
+          <Layout />
         </div>
         <div className='column two'>
           <Calendar />

@@ -13,8 +13,11 @@
 }
 
 .column.one{
+    display: flex;
+    flex-direction: column;
     min-width: 440px;
     margin-left: 10px;
+    align-items: center;
 }
 
 .column.two{
