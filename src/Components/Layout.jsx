@@ -75,7 +75,7 @@ const addToDB = async (val) => {
 
   return(
     <div className='layout-holder'>
-      <h1 className="title">Layout</h1>
+      <h1 className="titlew">Layout</h1>
       <div className="layout-option-holder">
         <form>
           <div className='radio-button'>

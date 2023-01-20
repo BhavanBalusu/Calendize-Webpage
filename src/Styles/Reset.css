@@ -15,9 +15,8 @@
     background: transparent;
     overflow: hidden;
     display: flex;
-    flex-direction:row;
-    width:100vw;
-    height: 100vh;
+    flex-direction:column;
+
 }
 
 .side-panel{

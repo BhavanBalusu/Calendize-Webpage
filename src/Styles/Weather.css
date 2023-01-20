@@ -7,6 +7,8 @@
 
 .widget{
 	display: flex;
+	position: relative;
+	top: 40px;
 }
 
 
@@ -322,7 +324,7 @@
 	align-items: center;
 	margin-top: 150px;
 	position: relative;
-	top: -90px;
+	top: -60px;
 	padding-bottom: 0px ;
 	margin-bottom: 0px;
 	height: 400px;

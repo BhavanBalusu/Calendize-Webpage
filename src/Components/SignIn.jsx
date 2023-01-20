@@ -1,6 +1,9 @@
 /* eslint-disable react/button-has-type */
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
+
+import logo from "../logo.png"
+
 // eslint-disable-next-line import/no-unresolved
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, login } from '../firebase';
@@ -20,13 +23,16 @@ function SignIn() {
 
   return (
     <div className="holder">
-      {/* <div className="side-panel">
-        <img src={logo} />
-      </div> */}
       <div className="welcome-panel">
         <div className="welcome">
           <div className="title">
-            <b>Sign in</b>
+            <img src={logo} width={85} height={55}/>
+          </div>
+          <div className='title-holder-holder'>
+            <h2>
+              Sign in
+            </h2>
+            <hr/>
           </div>
           <input
             value={email}
@@ -45,18 +51,16 @@ function SignIn() {
           <button className="login" onClick={() => login(email, pass)}>
             Login
           </button>
-          <Link to="/reset" className="forgot-password">
-            <span>Forgot password?</span>
-          </Link>
-        </div>
-        <div className="noo-account">
-          <h1>
-            Don't have an account?{' '}
+          <div className='holder-link-holder'>
             <Link to="/register" className="sign-up-button">
-              <span>Sign up</span>
+                <span>Sign up</span>
+              </Link>
+            <Link to="/reset" className="forgot-password">
+              <span>Forgot password?</span>
             </Link>
-          </h1>
+          </div>
         </div>
+
       </div>
     </div>
   );

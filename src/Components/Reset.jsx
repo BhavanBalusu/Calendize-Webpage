@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, forgotPassword } from "../firebase";
-import "../Styles/Reset.css";
+// import "../Styles/Reset.css";
+import logo from "../logo.png"
 
 function Reset() {
     const [email, setEmail] = useState("");
@@ -19,28 +20,38 @@ function Reset() {
     }, [currUser, loading]);
     return (
         <div className="holder">
-            <div className="welcome-panel">
-                <div className='welcomes'>
-                    <div className="title">
-                        <b>Password Reset</b>
-                    </div>
+            <div className="welcome-panel reset">
+                <div className="title">
+                    <img src={logo} width={85} height={55}/>
+                </div>
+                <div className='title-holder-holder'>
+                    <h2>
+                        Reset Password
+                    </h2>
+                    <hr/>
+                 </div>
+                <div className='welcomes reset'>
                     <input
                         value={email}
                         placeholder="E-mail"
                         type="email"
-                        className="email"
+                        className="email reset"
                         onChange={(e) => setEmail(e.target.value)} />
                     <button
-                        className='send'
+                        className='login reset'
                         onClick={() => forgotPassword(email)}>
-                        Send Link</button>
+                        Send Link
+                    </button>
+                    <div className="reset-navbar">
+                        <Link to="/sign" className="forgot-password reset">
+                            <span>Sign In</span>
+                        </Link>
+                        <Link to="/register" className="sign-up-button">
+                            <span>Sign up</span>
+                        </Link>
+                    </div>
                 </div>
-                <div className='no-account'>
-                    <h1>Don't' have an account? <Link to="/register" className='sign-up-button'>
-                        <span>Sign up</span>
-                    </Link>
-                    </h1>
-                </div>
+               
             </div>
         </div>
     );

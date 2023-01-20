@@ -1,55 +1,71 @@
-.holder {
-    width: 100vw;
-    height: 100vh;
-    background-image: url("../background.webp");
-    background-size: cover;
-}
 
 
 .weather {
     background-color: black;
 }
 
+.holder{
+    align-items: center;
+    justify-content: center;
+    margin-left: 0px;
+    padding-left: 0px;
+}
 
 .welcome-panel {
+    border-radius: 30px;
+    margin-top: 25vh;
     justify-content: center;
-    background: transparent;
     overflow: hidden;
     display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 100vh;
+    min-width: 400px;
+    flex-direction: column;
+    background: transparent;
+    background: white;
+    height: 600px;
 }
 
 .side-panel {
-    width: 50vw;
     background: transparent;
 }
 
 .welcome {
+    background: rgb(255, 255, 255);
     align-self: center;
     display: flex;
     flex-direction: column;
-    margin-top: -100px;
     /* background:rgba(238, 234, 234, 0.399); */
-    background: rgb(247, 245, 245);
     width: 300px;
     /* position: absolute; */
-    height: 400px;
-    border-radius: 20px;
+    height: 500px;
     padding-left: 40px;
     padding-right: 40px;
-    box-shadow: 0px 10px 100px 20px rgb(194, 191, 191);
 }
 
 .title {
+    margin-top: 10px;
     font-family: Helvetica;
-    padding-top: 40px;
-    background: transparent;
+    background: rgb(51, 33, 88);
     color: black;
     align-self: center;
-    height: 80px;
+    height: 60px;
+    border-radius: 100px;
     font-size: 2em;
+    display: flex;
+    padding-left: 12px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 5px 20px 5px rgb(219, 209, 250);
+}
+
+.title-holder-holder{
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+.title-holder-holder h2{
+    font-size: 30px;
+    color: rgb(111, 111, 111);
 }
 
 .title b {
@@ -63,11 +79,15 @@ input {
     font-size: 15px;
     border: none;
     border-radius: 0.5em;
-    height: 40px;
+    height: 46px;
     padding-left: 1em;
     padding-right: 1em;
-    margin-bottom: 1em;
-    box-shadow: 0px 5px 20px 5px rgb(199, 194, 194);
+    margin-bottom: 1.3em;
+    box-shadow: 0px 5px 20px 5px rgb(234, 234, 234);
+}
+
+input.signup{
+    min-height: 43px;
 }
 
 .login {
@@ -79,8 +99,8 @@ input {
     color: white;
     padding-left: 1em;
     padding-right: 1em;
-    margin-bottom: 2em;
-    box-shadow: 0px 5px 20px 5px rgb(196, 147, 221);
+    margin-top: 20px;
+    /* box-shadow: 0px 5px 20px 5px rgb(196, 147, 221); */
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -89,24 +109,26 @@ input {
     cursor: pointer;
 }
 
+.login.signup{
+    margin-top: 10px;
+    min-height: 45px;
+}
+
 .noo-account {
     font-family: sans-serif;
     font-size: 0.5rem;
     align-self: center;
     display: flex;
     flex-direction: column;
-    background: rgb(247, 245, 245);
+    background: rgb(255, 255, 255);
+    margin-top: 20px;
     width: 300px;
     padding-top: 20px;
     padding-bottom: 20px;
     align-items: center;
-    margin-top: 400px;
     white-space: nowrap;
-    position: absolute;
-    border-radius: 15px;
     padding-left: 40px;
     padding-right: 40px;
-    box-shadow: 0px 10px 100px 20px rgb(230, 204, 232);
 }
 
 .forgot-password {
@@ -118,7 +140,7 @@ input {
 }
 
 h1 {
-    color: rgb(84, 83, 83);
+    color: rgb(188, 187, 187);
     background: transparent;
     font-weight: 200;
 }
@@ -127,7 +149,7 @@ h1 {
 span {
     background: transparent;
     padding: 0;
-    color: rgb(45, 85, 245);
+    color: rgb(174, 174, 181);
     text-decoration: none;
 }
 
@@ -136,6 +158,7 @@ span {
 }
 
 .forgot-password:hover {
+    color: rgb(174, 174, 181);
     text-decoration: underline;
 }
 
@@ -146,5 +169,59 @@ span {
 
 
 .sign-up-button:hover {
+    color: rgb(174, 174, 181);
     text-decoration: underline;
+}
+
+.holder-link-holder{
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.holder-link-holder.signup{
+    margin-top: 20px;
+}
+
+
+.welcomes.reset{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input.email.reset{
+    width: 270px;
+}
+.welcome-panel.reset{
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    padding-left: 50px;
+    padding-right: 50px;
+    max-width: 300px;
+    min-width: 300px;
+}
+
+.login.reset{
+    width: 300px;
+}
+.holder-link-holder.reset{
+    display: flex;
+}
+
+.reset-navbar{
+    display: flex;
+    width: 300px;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+.forgot-password.reset{
+    margin-left: 0px;
+}
+
+@media screen and (max-width: 800px){
+    .welcome-panel{
+        margin-top: 150px;
+    }
 }

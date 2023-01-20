@@ -1,6 +1,6 @@
 .layout-holder{
     width: 370px;
-    height: 375px;
+    height: 400px;
     box-shadow: 4px 1px 40px 2px rgb(197, 189, 189);
     border-radius: 20px;
     background: white;
@@ -9,12 +9,13 @@
     justify-content: center;
 }
 
-.layout-holder .title{
+.layout-holder .titlew{
     width: 100%;
     text-align: center;
     font-size: 30px;
     padding-top: 15px;
-    height: 60px;
+    color: black;
+    height: 40px;
 }
 
 .layout-option-holder{

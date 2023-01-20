@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { auth, register } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import '../Styles/Register.css'
+import logo from "../logo.png"
+// import '../Styles/Register.css'
 function Register() {
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
@@ -34,9 +35,15 @@ function Register() {
             <div className="welcome-panel">
                 <div className='welcome'>
                     <div className="title">
-                        <b>Sign up</b>
+                        <img src={logo} width={85} height={55}/>
                     </div>
-                    <input
+                    <div className='title-holder-holder'>
+                        <h2>
+                            Sign Up
+                        </h2>
+                        <hr/>
+                    </div>
+                    <input 
                         placeholder="Full Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -55,16 +62,17 @@ function Register() {
                         value={confPass}
                         onChange={(e) => { setConfPass(e.target.value); e.target.style.border = "none" }} placeholder="Confirm Password" type="password"
                         className="password conf" />
-                    <button
-                        className='register'
-                        onClick={confirmPass}>
-                        Register</button>
+                    <button className="login signup" onClick={confirmPass}>
+                      Sign up
+                    </button>
                 </div>
-                <div className='have-account'>
-                    <h1>Already have an account? <Link to="/" className='sign-in-button'>
+                <div className='holder-link-holder signup'>
+                    <Link to="/sign" className="sign-up-button reset">
                         <span>Sign in</span>
                     </Link>
-                    </h1>
+                    <Link to="/reset" className="forgot-password reset">
+                    <span>Forgot password?</span>
+                    </Link>
                 </div>
             </div>
         </div>

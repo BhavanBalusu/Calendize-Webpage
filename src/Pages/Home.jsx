@@ -1,6 +1,6 @@
 import logo from "../calendize-home.png"
 import '../Styles/Home.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from "../firebase";
 import TypeAnimation from 'react-type-animation';
@@ -22,8 +22,10 @@ export default function Home() {
             <nav className="home-nav">
                 <img src={logo} alt="calendize logo" />
                 <div style={{ "width": "70%" }}></div>
-                <button className="sign-button sign-in" onClick={e => { e.preventDefault(); logout(); nav("/sign") }}>Log In</button>
-                <button className="sign-button sign-up" onClick={e => { e.preventDefault(); logout(); nav("/register") }}>Sign Up</button>
+                <button className="sign-button sign-in" onClick={e => { e.preventDefault(); logout(); window.open("http://localhost:3000/sign","_blank") }}>Log In</button>
+                <a target="_blank">
+                    <button className="sign-button sign-up" onClick={e => { e.preventDefault(); logout(); window.open("http://localhost:3000/register","_blank") }}>Sign Up</button>
+                </a>
             </nav>
 
 

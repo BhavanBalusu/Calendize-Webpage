@@ -10,6 +10,8 @@ body {
 		rgb(231, 237, 240),
 		rgb(220, 232, 237)
 	);
+	height: 100vh;
+	overflow-x: hidden;
 }
 
 h2.labelTitle {
