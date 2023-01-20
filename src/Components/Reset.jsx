@@ -15,7 +15,8 @@ function Reset() {
             return;
         }
         if (currUser) {
-            nav("/");
+            // nav("/");
+            logout();
         }
     }, [currUser, loading]);
     return (

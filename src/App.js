@@ -6,10 +6,9 @@ import Dashboard from "./Components/Dashboard";
 import Reset from "./Components/Reset";
 import Events from "./Pages/Events";
 import Weather from "./Pages/Weather";
+import Settings from "./Pages/Settings";
 import { React, Fragment } from "react";
 import Home from "./Pages/Home";
-
-
 
 export default function App() {
 	return (
@@ -28,6 +27,7 @@ export default function App() {
 						path="/events"
 						element={<Events title="Manage Events" />}
 					/>
+					<Route path="/settings" element={<Settings />}></Route>
 					{/* <Route path="/news" element={<News />} />
 					<Route path="/weather" element={<Weather />} />;
 					<Route path="/calendar" element={<Calendar />} /> */}
