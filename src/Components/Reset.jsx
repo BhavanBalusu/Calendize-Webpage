@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, forgotPassword } from "../firebase";
+import { auth, forgotPassword, logout } from "../firebase";
 import "../Styles/Reset.css";
 
 function Reset() {
@@ -14,7 +14,8 @@ function Reset() {
             return;
         }
         if (currUser) {
-            nav("/");
+            // nav("/");
+            logout();
         }
     }, [currUser, loading]);
     return (
