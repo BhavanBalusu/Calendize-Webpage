@@ -87,29 +87,26 @@ export default function Settings() {
         // change password
         <div className="settings-page">
             <button className="back-button" onClick={() => nav("/dash")}>Back</button>
-            <h1>Settings</h1>
-
-
             <div className="settings-holder">
-                <h2>Change Your Name:</h2>
-                <h3>Current Name: <span>{userDoc === undefined ? "" : name}</span></h3>
-                <label htmlFor="new-name-input">New Name: </label>
-                <form action="" onSubmit={(e) => { e.preventDefault(); changeName() }}>
-                    <input type="text" name="new-name-input" className="new-name-input" placeholder="Bhavan Balusu" ref={nameInput} />
-                </form>
-                <div>
-                    <button className="reset-button" onClick={() => { nav("/reset") }}>Reset Password</button>
+                <h1>Edit Profile <i className="bi bi-pencil-square edit-icon"></i> </h1>
+                <hr />
+
+                <div className="content-holder">
+                    <div className="labels">
+                        <h3 className="label text">Current Name <span></span></h3>
+                        <h3 className="label text">Current Email <span></span></h3>
+                    </div>
+
+                    <div className="content">
+                        <h3 className="label text">{userDoc === undefined ? "" : name}</h3>
+                        <h3 className="label text">{currUser === null ? "" : currUser.email}</h3>
+                    </div>
                 </div>
 
-                <h2>Change your Email</h2>
-                <form action="" onSubmit={(e) => { e.preventDefault(); changeEmail() }}>
-                    <input type="email" name="new-email-input" className="new-email-input" ref={emailInput} placeholder="example@example.com" />
-                </form>
 
-                <button className="delete-acc" onClick={() => { deleteAccount(); }}>Delete Account</button>
 
             </div>
 
-        </div>
+        </div >
     )
 }
