@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, forgotPassword } from "../firebase";
+import { auth, forgotPasswor, logout, forgotPassword } from "../firebase";
 // import "../Styles/Reset.css";
 import logo from "../logo.png"
 
@@ -23,14 +23,14 @@ function Reset() {
         <div className="holder">
             <div className="welcome-panel reset">
                 <div className="title">
-                    <img src={logo} width={85} height={55}/>
+                    <img src={logo} width={85} height={55} />
                 </div>
                 <div className='title-holder-holder'>
                     <h2>
                         Reset Password
                     </h2>
-                    <hr/>
-                 </div>
+                    <hr />
+                </div>
                 <div className='welcomes reset'>
                     <input
                         value={email}
@@ -52,7 +52,7 @@ function Reset() {
                         </Link>
                     </div>
                 </div>
-               
+
             </div>
         </div>
     );
