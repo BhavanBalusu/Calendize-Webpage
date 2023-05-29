@@ -6,6 +6,7 @@ import { auth, db, logout } from "../firebase";
 import { collection, query, onSnapshot, where, getDocs, orderBy, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import React, { useState, useEffect, useRef } from 'react';
 import { deleteUser, updateEmail } from "firebase/auth";
+import '../Styles/Settings.css'
 
 
 export default function Settings() {
@@ -84,28 +85,31 @@ export default function Settings() {
         // delete account
         // change name
         // change password
-
-        <>
-
-            <button className="back-button" onClick={() => nav("/dash")}>Go Back</button>
+        <div className="settings-page">
+            <button className="back-button" onClick={() => nav("/dash")}>Back</button>
             <h1>Settings</h1>
-            <h2>Change Your Name:</h2>
-            <h3>Current Name: <span>{userDoc === undefined ? "" : name}</span></h3>
-            <label htmlFor="new-name-input">New Name: </label>
-            <form action="" onSubmit={(e) => { e.preventDefault(); changeName() }}>
-                <input type="text" name="new-name-input" className="new-name-input" placeholder="Bhavan Balusu" ref={nameInput} />
-            </form>
-            <div>
-                <button className="reset-button" onClick={() => { nav("/reset") }}>Reset Password</button>
+
+
+            <div className="settings-holder">
+                <h2>Change Your Name:</h2>
+                <h3>Current Name: <span>{userDoc === undefined ? "" : name}</span></h3>
+                <label htmlFor="new-name-input">New Name: </label>
+                <form action="" onSubmit={(e) => { e.preventDefault(); changeName() }}>
+                    <input type="text" name="new-name-input" className="new-name-input" placeholder="Bhavan Balusu" ref={nameInput} />
+                </form>
+                <div>
+                    <button className="reset-button" onClick={() => { nav("/reset") }}>Reset Password</button>
+                </div>
+
+                <h2>Change your Email</h2>
+                <form action="" onSubmit={(e) => { e.preventDefault(); changeEmail() }}>
+                    <input type="email" name="new-email-input" className="new-email-input" ref={emailInput} placeholder="example@example.com" />
+                </form>
+
+                <button className="delete-acc" onClick={() => { deleteAccount(); }}>Delete Account</button>
+
             </div>
 
-            <button className="delete-acc" onClick={() => { deleteAccount(); }}>Delete Account</button>
-
-            <h2>Change your Email</h2>
-            <form action="" onSubmit={(e) => { e.preventDefault(); changeEmail() }}>
-                <input type="email" name="new-email-input" className="new-email-input" ref={emailInput} placeholder="example@example.com" />
-            </form>
-
-        </>
+        </div>
     )
 }
