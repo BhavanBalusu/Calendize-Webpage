@@ -5,13 +5,14 @@ import Register from "./Components/Register";
 import Dashboard from "./Components/Dashboard";
 import Reset from "./Components/Reset";
 import Events from "./Pages/Events";
-import Weather from "./Pages/Weather";
-import Settings from "./Pages/Settings";
+import Weather from "./Pages/WeatherPage";
+import Settings from "./Pages/SettingsPage";
 import { React, Fragment } from "react";
 import Home from "./Pages/Home";
 import Links from "./Pages/Links";
 import Calendar from "./Pages/Calendar";
-import Layout from "./Components/Layout";
+import Layout from "./Pages/Layouts";
+
 
 export default function App() {
 	return (
