@@ -9,6 +9,9 @@ import Weather from "./Pages/Weather";
 import Settings from "./Pages/Settings";
 import { React, Fragment } from "react";
 import Home from "./Pages/Home";
+import Links from "./Pages/Links";
+import Calendar from "./Pages/Calendar";
+import Layout from "./Components/Layout";
 
 export default function App() {
 	return (
@@ -28,9 +31,14 @@ export default function App() {
 						element={<Events title="Manage Events" />}
 					/>
 					<Route path="/settings" element={<Settings />}></Route>
-					{/* <Route path="/news" element={<News />} />
+					{/* <Route path="/links" element={<Links />} /> */}
+					<Route
+						path="/links"
+						element={<Links title="Links" />}
+					/>
+					<Route path="/layout" element={<Layout />} />;
 					<Route path="/weather" element={<Weather />} />;
-					<Route path="/calendar" element={<Calendar />} /> */}
+					<Route path="/calendar" element={<Calendar />} />
 				</Routes>
 			</Fragment>
 		</Router>

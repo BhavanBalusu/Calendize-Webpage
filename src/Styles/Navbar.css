@@ -11,24 +11,27 @@
 	font-size: 20px;
 	padding-left: 2vw;
 	padding-right: 2vw;
-	background: white;
+	background:rgb(255, 255, 255);
 	display: flex;
 	flex-direction: row;
-	position: fixed;
+	/* position: fixed; */
+	width: calc(100vw - 250px);
+	align-self: right;
 	top: 0;
-	width: 96vw;
 	z-index: 1;
+	margin-left: 0px;
 	justify-content: space-around;
 }
 
-.name {
+.name-info {
 	padding-top: 10px;
 	background: transparent;
 	color: black;
 	width: 33vw;
+	text-align: end;
 }
 
-.name span {
+.name-info span {
 	color: #5c52edd7;
 	font-weight: 800;
 }
@@ -73,7 +76,7 @@ button.special:hover {
 .page {
 	color: black;
 	padding-top: 10px;
-	left: 45%;
+	text-align: right;
 	width: 33vw;
 	background: transparent;
 }

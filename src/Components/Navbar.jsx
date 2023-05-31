@@ -54,14 +54,9 @@ function Navbar(props) {
     return (
         <>
             <div className="menubar">
-                <div className="name">
-                    Welcome, <span>{userName.indexOf(" ") !== -1 ? userName.substring(0, userName.indexOf(" ")) : userName}</span>
-                </div>
                 <div className="page" >{props.title}</div>
-                <div className='logout'>
-                    <button className=" special" onClick={() => { logout(); nav("/") }}>
-                        Log out
-                    </button>
+                <div className="name-info">
+                    Hey, <span>{userName.indexOf(" ") !== -1 ? userName.substring(0, userName.indexOf(" ")) : userName}</span>
                 </div>
             </div>
             {/* <div className={`menuNav ${navbarOpen ? " showMenu" : " closeMenu"}`}>
