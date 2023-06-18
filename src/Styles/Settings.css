@@ -1,7 +1,6 @@
 .settings-page {
 	display: flex;
 	flex-direction: column;
-	margin-left: 100px;
 }
 
 .settings-holder {
@@ -13,17 +12,17 @@
 	box-shadow: 0px 5px 50px rgb(218, 220, 237);
 	padding-bottom: 20px;
 	border-radius: 1rem;
+	min-width: 400px;
+	align-self: center;
+	justify-self: center;
 }
 
 .settings-page .content-holder {
 	display: flex;
 	width: 100%;
 	font-size: 1em;
-}
-
-.settings-page .labels {
-	width: 50%;
-	font-weight: 800;
+	flex-direction: column;
+	text-align: left;
 }
 
 .settings-page .title-holder {
@@ -37,7 +36,7 @@
 
 #password-display {
 	background: transparent;
-	padding-left: 10px 20px;
+	padding: 0px 20px;
 	font-size: 1em;
 	height: 16.75%;
 }
@@ -45,6 +44,20 @@
 input[type="password"]:disabled {
 	background: transparent;
 	color: black;
+	border: none;
+}
+.settings-page input {
+	border: none;
+	border-bottom: 1px solid rgb(200, 200, 200);
+	margin-bottom: 4px;
+	transition: all 0.35s ease;
+	transform-origin: left;
+	resize: none;
+}
+
+.settings-page #input-display:focus {
+	outline-width: 0;
+	border-bottom: 1px solid rgb(96, 29, 122);
 }
 
 .settings-page .edit-icon {
@@ -54,10 +67,15 @@ input[type="password"]:disabled {
 
 .settings-page .label.text {
 	padding: 10px 20px;
+	width: 30%;
 }
 
-.settings-page .labels .text {
-	font-weight: bold;
+.label-field-component {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	text-align: left;
 }
 
 .settings-page .content {
@@ -97,7 +115,7 @@ input[type="password"]:disabled {
 }
 
 .buttons-holder button {
-	width: 33%;
+	width: 20%;
 	height: 2.5rem;
 	border-radius: 0.75em;
 	border: none;
@@ -106,15 +124,58 @@ input[type="password"]:disabled {
 	transition: all 0.15s ease-in;
 }
 
+.label.text.current {
+	color: grey;
+}
+
 .buttons-holder button:hover {
 	cursor: pointer;
 	filter: brightness(125%);
 }
 
-.buttons-holder .cancel {
-	background-color: rgba(220, 53, 69, 1);
+.buttons-holder .save {
+	background-color: rgb(153, 53, 220);
 }
 
-.buttons-holder .save {
-	background-color: rgba(0, 123, 255, 1);
+.buttons-holder .cancel {
+	background-color: rgb(150, 150, 150);
+}
+
+@media screen and (max-width: 1250px) {
+	.label-field-component {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+	}
+
+	.label.text {
+		width: 100%;
+		text-align: center;
+	}
+
+	.settings-page .buttons-holder {
+		margin-top: 25px;
+	}
+
+	.settings-page .buttons-holder button {
+		width: 100px;
+	}
+}
+
+@media screen and (max-width: 1700px) {
+	.settings-holder {
+		align-self: center;
+		justify-self: center;
+		margin-left: 100%;
+	}
+}
+
+@media screen and (max-width: 1230px) {
+	.settings-holder {
+		align-self: center;
+		justify-self: center;
+		margin-left: 0;
+	}
 }

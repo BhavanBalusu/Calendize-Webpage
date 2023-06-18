@@ -94,7 +94,7 @@ export default function Settings() {
 
             catch (e) {
                 alert("Error: Could not update password")
-                console.error(e)
+                console.log(e)
             }
         }
 
@@ -153,31 +153,42 @@ export default function Settings() {
 
 
                 <div className="content-holder" ref={disp}>
-                    <div className="labels">
+                    <div className="label-field-component">
                         <h3 className="label text">Current Name </h3>
-                        <h3 className="label text">Current Email </h3>
-                        <h3 className="label text">Current Password </h3>
+                        <h3 className="label text current">{userDoc === undefined ? "" : name}</h3>
                     </div>
 
-                    <div className="content">
-                        <h3 className="label text">{userDoc === undefined ? "" : name}</h3>
-                        <h3 className="label text">{currUser === null ? "" : currUser.email}</h3>
-                        <input id="input-display" className="label text borderless" type="password" disabled value={currUser === null ? "" : "123456789101112"} />
+                    <div className="label-field-component">
+                        <h3 className="label text">Current Email </h3>
+                        <h3 className="label text current">{currUser === null ? "" : currUser.email}</h3>
                     </div>
+
+                    <div className="label-field-component">
+                        <h3 className="label text">Current Password </h3>
+                        <input id="input-display" className="label text borderless current" type="password" disabled value={currUser === null ? "" : "123456789101112"} />
+                    </div>
+
                 </div>
 
                 <div className="content-holder inputs hidden" ref={edit}>
-                    <div className="labels">
+
+                    <div className="label-field-component">
                         <h3 className="label text">New Name </h3>
-                        <h3 className="label text">New Email </h3>
-                        <h3 className="label text">New Password </h3>
-                        <h3 className="label text">Confirm Password</h3>
+                        <input id="input-display" className="label text" ref={nameInput} placeholder={userDoc === undefined ? "" : name} />
                     </div>
 
-                    <div className="content">
-                        <input id="input-display" className="label text" ref={nameInput} placeholder={userDoc === undefined ? "" : name} />
+                    <div className="label-field-component">
+                        <h3 className="label text">New Email </h3>
                         <input id="input-display" className="label text" ref={emailInput} placeholder={currUser === null ? "" : currUser.email} />
+                    </div>
+
+                    <div className="label-field-component">
+                        <h3 className="label text">New Password </h3>
                         <input id="input-display" className="label text" type="password" ref={pwInput} placeholder="Enter password here" />
+                    </div>
+
+                    <div className="label-field-component">
+                        <h3 className="label text">Confirm Password</h3>
                         <input id="input-display" className="label text" type="password" ref={pwConfirmInput} placeholder="Confirm password here" />
                     </div>
 
