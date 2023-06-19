@@ -4,7 +4,7 @@ import Sign from "./Components/SignIn";
 import Register from "./Components/Register";
 import Dashboard from "./Components/Dashboard";
 import Reset from "./Components/Reset";
-import Events from "./Pages/Events";
+import Events from "./Pages/EventsPage";
 import Weather from "./Pages/WeatherPage";
 import Settings from "./Pages/SettingsPage";
 import { React, Fragment } from "react";
@@ -31,15 +31,19 @@ export default function App() {
 						path="/events"
 						element={<Events title="Manage Events" />}
 					/>
+
 					<Route path="/settings" element={<Settings />}></Route>
+				
 					{/* <Route path="/links" element={<Links />} /> */}
 					<Route
 						path="/links"
 						element={<Links title="Links" />}
 					/>
+
 					<Route path="/layout" element={<Layout />} />;
 					<Route path="/weather" element={<Weather />} />;
 					<Route path="/calendar" element={<Calendar />} />
+
 				</Routes>
 			</Fragment>
 		</Router>

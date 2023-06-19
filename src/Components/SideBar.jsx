@@ -20,6 +20,7 @@ export default function Sidebar() {
                 <button onClick={()=>{nav("/dash")}}> <i class="bi bi-house-door-fill"/>Dashboard</button>
                 <button onClick={()=>{nav("/links")}} ><i class="bi bi-link-45deg"/>Links</button>
                 <button onClick={()=>{nav("/layout")}}><i class="bi bi-grid-1x2"/>Layouts</button>
+                <button onClick={()=>{nav("/events")}}><i class="bi bi-calendar-event"/>Events</button>
                 <button onClick={()=>{nav("/weather")}}><i class="bi bi-cloud-sun-fill"/>Weather</button>
                 <button onClick={()=>{nav("/settings")}}><i class="bi bi-gear-fill"/>Settings</button>
             </div>

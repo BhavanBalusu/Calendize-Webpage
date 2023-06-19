@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './Navbar'
 import '../Styles/Dashboard.css'
 import Events from '../Pages/Events';
-import Location from '../Pages/Weather'
+import Location from '../Widgets/Weather'
 import News from '../Pages/News'
 import Calendar from '../Pages/Calendar';
 import Layout from "./Layout";

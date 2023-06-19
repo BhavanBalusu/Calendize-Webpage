@@ -25,6 +25,11 @@
 	padding-bottom: 20px;
 }
 
+.weather.widget{
+	margin-top: 0px;
+	margin-bottom: 200px;
+}
+
 .cityName {
 	margin: 20px;
 	margin-top: 0px;
@@ -38,6 +43,10 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent; */
 	color: white;
+}
+
+.cityName.widget{
+	margin-top: 20px;
 }
 
 .tempInfo {
@@ -169,6 +178,10 @@
 	
 }
 
+.weather.noloc{
+	margin-bottom: 120px;
+}
+
 .Dummy {
 	align-self: center;
 	width: 200px;
@@ -296,27 +309,6 @@
 	margin: 0;
   }
   
- .bi.bi-pencil-fill{
-	position: relative;
-	width: 15px;
-	cursor: pointer;
-	background: rgb(156, 156, 250);
-	padding: 10px 12px 10px 12px;
-	border-radius: 30px;
-	left: 270px;
-	top: -33px;
-	margin: 0px 0px 0px 0px;
-	color: white;
- }
- .bi.bi-pencil-fill:hover{
-	background: rgb(133, 133, 221);
- }
-
- .subHolder{
-	visibility: hidden;
-	position: relative;
-	top: -310px;
- }
 
  .housing-weather{
 	display: flex;
@@ -335,40 +327,80 @@
 	margin-bottom: 0px;
  }
 
- .GetUserLocation .bi.bi-x{
-	position: relative;
-	top: -13px;
-	left: 200px;
-	font-size: 25px;
-	background: rgb(232, 79, 79);;
+
+
+.weather-search-bar{
+	/* padding-top: 10px; */
+	/* padding-left: 10px;
+	padding-right: 10px; */
+	
+	background: white;
+	display: flex;
+	flex-direction: column;
+	width:400px;
+	border-radius: 10px;
+}
+
+.search-item{
+	width:400px;
+	height: 40px;
+	border-style: none;
+	font-size: 13px;
+	background: rgb(237, 229, 251);
 	cursor: pointer;
-	color: white;
-	border-radius: 30px;
-	padding-left: 2.5px;
-	padding-right: 2px;
- }
- .GetUserLocation .bi.bi-x:hover{
-	background: rgb(188, 57, 57);;
- }
+	color: rgb(157, 96, 237)
+	
+}
 
- .weathers .bi.bi-pencil-fill{
-	color: rgb(255, 255, 255);
-	/* width: 50px;
-	height: 60px; */
+.bi.bi-search{
+	font-size: 20px;
+	padding: 7px;
 	position: relative;
-	top: -80px;
-	left: 150px;
-	border-radius: 100px;
-	padding-bottom: 10px;
-	font-size: 18px;
-	cursor: pointer;
-	background: rgb(123, 123, 234);
- }
+	top:2px;
+	cursor: pointer	;
+	color:white;
+	font-weight:bolder;
+	border-radius: 10px;
+	background: rgb(194, 143, 235);
+	
+}
 
- .weathers .bi.bi-pencil-fill:hover{
-	background: rgb(102, 102, 195);
- }
+.bi.bi-search:hover{
+	background: rgb(177, 99, 241);
+}
 
+.search-item:hover{
+	background: rgb(223, 210, 247);
+}
+
+.search-item.error{
+	padding-top: 10px;
+	text-align: center;
+	font-size: 13px;
+}
+
+.search-item.error:hover{
+	background: rgb(237, 229, 251);
+}
+.search-bar-results{
+	width: 400px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 10px 0px 0px 10px;
+	/* margin-bottom: 10px; */
+}
+
+.locationInput.search{
+	margin-bottom: 2px;
+	width: 330px;
+	box-shadow: none;
+	border-radius: 10px 10px 10px 10px;
+	/* border-bottom: 2px solid rgb(238, 233, 233) */
+}
+.locationInput.search:focus{
+	outline: none;
+}
 
  @media screen and (max-width: 1300px) {
 	.housing-weather{

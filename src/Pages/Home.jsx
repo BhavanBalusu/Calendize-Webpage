@@ -13,7 +13,7 @@ export default function Home() {
 
     useEffect( ()=>{
         if (currUser){
-            nav('/dashboard')
+            nav('/dash')
         }
     },[currUser])
 

@@ -1,0 +1,108 @@
+.main {
+    left: 0;
+  }
+  
+  div.weather {
+    align-self: flex-start;
+    background: white;
+    display: flex;
+    color: rgb(110, 113, 126);
+    border-radius: 1rem;
+    flex-direction: column;
+    min-height: 200px;
+    height: 220px;
+    min-width: 250px;
+    padding: 10px;
+    max-width: 270px;
+    margin-right: 0px;
+    padding-right: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 25px 25px 25px 25px;
+  }
+  
+  .moreInfo img{
+    border-radius: 20%;
+    background: rgb(208, 221, 252);
+  
+  }
+  
+  .cityName {
+    color: rgb(48, 99, 216);
+    font-size: 22.5px;
+    font-weight: 300;
+    height: 10%;
+  }
+  
+  .tempInfo {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 0px 0px 0px;
+    font-weight: 300;
+    padding: 0px 0px 0px 0px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+  
+  div.weather #des{
+    color: rgb(92, 111, 219);
+    font-weight: 400;
+    
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .temp {
+    color: black;
+    text-align: center;
+    font-size: 7vw;
+    font-weight: 300;
+    margin: 0px 0px 0px 0px;
+  
+  }
+  
+  .moreInfo {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+  }
+  
+  .moreInfo img{
+    min-height: 75px;
+    min-width: 75px;
+  }
+  
+  .noLocation {
+    font-size: 3.5vh;
+    margin: 0px;
+  }
+  
+  .minMax {
+    margin-bottom: 10px;
+  }
+  
+  .cityInput {
+    box-shadow: none;
+    height: 2.5vh;
+    width: 78%;
+    margin-top: 2vh;
+    border-radius: 0.3rem;
+    font-size: 2vh;
+  }
+  
+  .noloc {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin: 0;
+  }
+  
+  
+  @media screen and (min-width: 1400px){
+    .temp{
+      font-size: 85px;
+    }
+  }
+  

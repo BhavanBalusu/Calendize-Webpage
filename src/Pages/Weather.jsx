@@ -5,12 +5,13 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../firebase";
 import { doc, query, collection, where, getDocs, updateDoc } from "firebase/firestore";
 import { useEffect } from "react";
+import List from '../Components/WeatherSearchList'
 
 import Widget from '../Components/WeatherWidget';
 
 export default function Location() {
     const [currUser] = useAuthState(auth);
-
+    const [inputText, setInputText] = useState("");
     const [loc, setLoc] = useState("None");
     const locRef = useRef("")
 
@@ -145,11 +146,26 @@ export default function Location() {
         popup.style.display = 'none'
     }
 
+    let inputHandler = (e) => {
+        //convert input text to lower case
+
+        var lowerCase = e.target.value.toLowerCase();
+        setInputText(lowerCase);
+    };
+
     return (
         <>
             <div className="housing-weather">
-                <div className="widget"> <Widget /></div>
-                <div className="subHolder">
+            <Widget />
+            <div className="weather-search-bar">
+                <div>
+                    <input type="text" placeholder="Enter city name" className="locationInput search" onChange={inputHandler} />
+                    <i class="bi bi-search"></i>
+                </div>
+                <List input={inputText}/>
+            </div>
+           
+                {/* <div className="subHolder">
                     <div className="GetUserLocation">
                         <i onClick={()=>{closePopUp()}} class="bi bi-x"></i>
                         <h1 className="weather-label">Location for Weather: {loc}</h1>
@@ -157,13 +173,14 @@ export default function Location() {
                         <p className="or"> OR</p>
                         <h2>Want to type your city in instead?</h2>
                         <form className="location-form" onSubmit={e => submitData(e)}>
-                            <input type="text" placeholder="Enter city name" ref={locRef} className="locationInput" onChange={e => e.target.style.border = "2px solid rgba(0, 0, 0, 0.2)"} />
+                            <input type="text" placeholder="Enter city name" ref={locRef} className="locationInput" onChange={e => {e.target.style.border = "2px solid rgba(0, 0, 0, 0.2)"}} />
                             <button className="locationSubmit">Submit</button>
                         </form>
                         <p className="disclaimer">*Note: All cities may not be avaliable</p>
                     </div>
-                </div>
+                </div> */}
             </div>
+           
         </>
     )
 }
