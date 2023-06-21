@@ -29,7 +29,6 @@ function Navbar(props) {
             const data = doc.docs[0].data();
             setName(data.name);
         } catch (err) {
-            alert('An error had occurred while fetching the users name');
             console.log(err)
         }
     };

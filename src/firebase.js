@@ -50,7 +50,7 @@ const register = async (name, email, password) => {
 			location: "None",
 			iCalLinks: [],
 			rssLinks: [],
-			layout: "",
+			layout: "H1",
 		});
 	} catch (err) {
 		console.log(err);
