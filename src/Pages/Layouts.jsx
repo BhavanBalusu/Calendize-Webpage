@@ -3,20 +3,18 @@ import Layout from '../Components/Layout';
 import Sidebar from "../Components/SideBar";
 import Navbar from "../Components/Navbar";
 
-function Layouts(){
+function Layouts() {
 
-    return(
-        <>
-            <div className='dashPage-holders'>
-                <Sidebar/>
-                <div className='DasH'>
-                    <Navbar/>
-                    <div className='dashPage'>
-                        <Layout/>
-                    </div>
+    return (
+        <div className='dashPage-holders'>
+            <Sidebar />
+            <div className='DasH'>
+                <Navbar />
+                <div className='dashPage'>
+                    <Layout />
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 

@@ -1,110 +1,173 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../firebase";
 import { doc, query, collection, where, getDocs, updateDoc } from "firebase/firestore";
 import '../Styles/Layout.css'
-import { async } from "@firebase/util";
 
-function Layout(){
-  const [currUser] = useAuthState(auth);
-  const [layout, setLayout] = useState('');
-
-
-  useEffect(() => {
-    getUserOption()
-  }, [currUser])
+import LayoutCard from "../Components/LayoutCard";
+import horizontalOne from "../horizontal-one.png"
+import horizontalTwo from "../horizontal-two.png"
+import verticalOne from "../vertical-one.png"
+import verticalTwo from "../vertical-two.png"
 
 
-  const getUserOption = async () => {
-    if (currUser == null) {
-      return;
-    }
-    try {
-        const q = query(
-            collection(db, 'users'),
-            where('uid', '==', currUser?.uid)
-        );
-        const userDoc = await getDocs(q);
-        const userOption = userDoc.docs[0].get("layout")
-        if(userOption===""){
-          document.querySelector('input[value="H1"]').checked = true;
-        } else{
-          document.querySelector("input[value=" + userOption +"]").checked = true;
+function Layout() {
+
+    const [currUser] = useAuthState(auth);
+    const [layout, setLayout] = useState('H1');
+
+
+    const horizOne = useRef()
+    const horizTwo = useRef()
+    const vertOne = useRef()
+    const vertTwo = useRef()
+
+    const getUserOption = async () => {
+
+        if (currUser == null) {
+            return;
         }
-    } catch (err) {
-        console.log(err);
-        alert('An error had occurred while fetching the users name');
-        return;
+
+        try {
+            const q = query(
+                collection(db, 'users'),
+                where('uid', '==', currUser?.uid)
+            );
+
+            const userDoc = await getDocs(q);
+            const userOption = userDoc.docs[0].get("layout")
+
+            if (userOption === "" || userOption === "H1") {
+                horizOne.current.classList.toggle("hoverable")
+                horizOne.current.classList.toggle("selected")
+            }
+
+            else if (userOption === "H2") {
+                horizTwo.current.classList.toggle("hoverable")
+                horizTwo.current.classList.toggle("selected")
+
+            }
+
+            else if (userOption === 'V1') {
+                vertOne.current.classList.toggle("hoverable")
+                vertOne.current.classList.toggle("selected")
+            }
+
+            else {
+                vertTwo.current.classList.toggle("hoverable")
+                vertTwo.current.classList.toggle("selected")
+            }
+
+
+        } catch (err) {
+            console.log(err);
+            return;
+        }
+    }
+
+    const changeLayout = async (e, val) => {
+        e.preventDefault();
+        setLayout(val);
+
+        if (val === "" || val === "H1") {
+            horizOne.current.classList.toggle("hoverable")
+            horizOne.current.classList.toggle("selected")
+
+            horizTwo.current.classList.add("hoverable")
+            horizTwo.current.classList.remove("selected")
+
+            vertOne.current.classList.add("hoverable")
+            vertOne.current.classList.remove("selected")
+
+            vertTwo.current.classList.add("hoverable")
+            vertTwo.current.classList.remove("selected")
+        }
+
+        else if (val === "H2") {
+            horizTwo.current.classList.toggle("hoverable")
+            horizTwo.current.classList.toggle("selected")
+
+            horizOne.current.classList.add("hoverable")
+            horizOne.current.classList.remove("selected")
+
+            vertOne.current.classList.add("hoverable")
+            vertOne.current.classList.remove("selected")
+
+            vertTwo.current.classList.add("hoverable")
+            vertTwo.current.classList.remove("selected")
+
+        }
+
+        else if (val === 'V1') {
+            vertOne.current.classList.toggle("hoverable")
+            vertOne.current.classList.toggle("selected")
+
+            horizOne.current.classList.add("hoverable")
+            horizOne.current.classList.remove("selected")
+
+            horizTwo.current.classList.add("hoverable")
+            horizTwo.current.classList.remove("selected")
+
+            vertTwo.current.classList.add("hoverable")
+            vertTwo.current.classList.remove("selected")
+        }
+
+        else {
+            vertTwo.current.classList.toggle("hoverable")
+            vertTwo.current.classList.toggle("selected")
+
+            horizOne.current.classList.add("hoverable")
+            horizOne.current.classList.remove("selected")
+
+            horizTwo.current.classList.add("hoverable")
+            horizTwo.current.classList.remove("selected")
+
+            vertOne.current.classList.add("hoverable")
+            vertOne.current.classList.remove("selected")
+        }
+
+        console.log(val)
+        // await addToDB(val)
 
     }
-  }
 
+    const addToDB = async (val) => {
+        if (!currUser) return;
+        try {
+            const q = query(
+                collection(db, 'users'),
+                where('uid', '==', currUser?.uid)
+            );
+            const userDoc = await getDocs(q);
+            const docID = userDoc.docs[0].id;
 
+            await updateDoc(doc(db, "users", docID), { layout: layout })
+            alert("Success! Make sure to reload the display to see your changes.")
 
-  // async function changeLayout(e){
-  //   var radioValue = document.querySelector('input[name="layout"]:checked').value
-  //   setLayout(radioValue)
-
-  // }
-
-  const changeLayout = async (e) => {
-    e.preventDefault();
-
-    var radioValue = document.querySelector('input[name="layout"]:checked').value
-    console.log(radioValue)
-    await addToDB(radioValue)
-}
-
-const addToDB = async (val) => {
-    if (!currUser) return;
-    try {
-        const q = query(
-            collection(db, 'users'),
-            where('uid', '==', currUser?.uid)
-        );
-        const userDoc = await getDocs(q);
-        const docID = userDoc.docs[0].id;
-
-        await updateDoc(doc(db, "users", docID), { layout: val })
-
-    } catch (err) {
-        console.error(err)
-        alert("Unable to save layout.")
+        } catch (err) {
+            console.error(err)
+            alert("Unable to save layout.")
+        }
     }
-}
 
-  return(
-    <div className='layout-holder'>
-      <h1 className="titlew">Layout</h1>
-      <div className="layout-option-holder">
-        <form>
-          <div className='radio-button'>
-            <input type="radio" id="H1" name="layout" value="H1" />
-            <label for="H1">Horizontal 1</label>
-          </div>
-        
-          <div className='radio-button'>
-            <input type="radio" id="H2" name="layout" value="H2" />
-            <label for="H2">Horizontal 2</label>
-          </div>
+    useEffect(() => {
+        getUserOption()
+    }, [currUser])
 
-          <div className='radio-button'>
-            <input type="radio" id="V1" name="layout" value="V1" />
-            <label for="V1">Vertical 1</label>
-          </div>
+    return (
+        <div className='layout-page'>
+            <div className="cards-holder">
+                <LayoutCard imgSrc={horizontalOne} desc={"Horizontal One"} additionalClass={"hoverable"} layout="H1" onClickFN={changeLayout} ref={horizOne} />
+                <LayoutCard imgSrc={horizontalTwo} desc={"Horizontal Two"} additionalClass={"hoverable"} layout="H2" onClickFN={changeLayout} ref={horizTwo} />
+            </div>
 
-          <div className='radio-button'>
-            <input type="radio" id="V2" name="layout" value="V2" />
-            <label for="V2">Vertical 2</label>
-          </div>
-
-          <div>
-            <button type="submit" onClick={(e)=>{changeLayout(e); e.preventDefault();}} className='change-button'>Change</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
+            <div className="cards-holder">
+                <LayoutCard imgSrc={verticalOne} desc={"Vertical One"} additionalClass={"hoverable vertical"} layout="V1" onClickFN={changeLayout} ref={vertOne} />
+                <LayoutCard imgSrc={verticalTwo} desc={"Vertical Two"} additionalClass={"hoverable vertical"} layout="V2" onClickFN={changeLayout} ref={vertTwo} />
+            </div>
+            <button onClick={(e) => { e.preventDefault(); addToDB("H1") }}>Submit</button>
+        </div>
+    );
 }
 
 export default Layout;

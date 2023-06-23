@@ -1,52 +1,75 @@
-.layout-holder{
-    width: 370px;
-    height: 400px;
-    box-shadow: 4px 1px 40px 2px rgb(197, 189, 189);
-    border-radius: 20px;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.layout-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.layout-page button {
+	border: none;
+	color: white;
+	background-color: rgb(168, 99, 247);
+	width: 200px;
+	height: 50px;
+	border-radius: 0.5em;
+	transition: all 0.2s ease;
 }
 
-.layout-holder .titlew{
-    width: 100%;
-    text-align: center;
-    font-size: 30px;
-    padding-top: 15px;
-    color: black;
-    height: 40px;
+.layout-page button:hover {
+	filter: brightness(90%);
 }
 
-.layout-option-holder{
-    display: flex;
-    flex-direction: column;
-    margin-left: 125px;
+.cards-holder {
+	display: flex;
+	margin-bottom: 70px;
 }
 
-.radio-button{
-    display: flex;
-    flex-direction: row;
+.layout-holder {
+	width: 400px;
+	height: 250px;
+	margin: 10px 20px;
+	/* background-color: #2f2f2f; */
+	/* color: white; */
+
+	background-color: white;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	border: 2px solid transparent;
+	border-radius: 0.25rem;
+	transition: all 0.2s ease;
+
+	box-shadow: 0px 0px 10px grey;
 }
 
-.radio-button label{
-    position: relative;
-    top: 10px;
-    padding-left: 20px;
-
+.layout-holder.vertical {
+	width: 400px;
+	height: 300px;
 }
 
-.change-button{
-    position: relative;
-    left: -45px;
-    width: 200px;
-    cursor: pointer;
-    height: 40px;
-    font-size: 17px;
-    font-weight: 300;
-    border: none;
-    background: rgb(139, 101, 230);
-    color: white;
-    border-radius: 10px;
+.layout-holder.hoverable:hover {
+	border: 2px solid rgb(168, 99, 247);
+}
 
+.layout-holder.selected {
+	border: 2px solid rgb(168, 99, 247);
+}
+
+.layout-image.horiz {
+	width: 300px;
+}
+
+.layout-image.vert {
+	height: 250px;
+}
+
+.layout-text {
+	padding-top: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+	.cards-holder {
+		flex-direction: column;
+	}
 }
