@@ -11,7 +11,7 @@ function WeatherPage(){
                 <Sidebar/>
                 <div className='DasH'>
                     <Navbar/>
-                    <div className='dashPage'>
+                    <div >
                         <Weather/>
                     </div>
                 </div>

@@ -27,7 +27,7 @@
 
 .weather.widget{
 	margin-top: 0px;
-	margin-bottom: 200px;
+	margin-bottom: 100px;
 }
 
 .cityName {
@@ -184,13 +184,20 @@
 
 .Dummy {
 	align-self: center;
-	width: 200px;
+	width: 275px;
 	height: 40px;
-	background: rgb(138, 158, 237);
+	background: rgb(166, 119, 233);
+	cursor: pointer;
+	text-decoration: none;
+	border: none;
+	border-radius: 10px;
+	color: white;
+	font-size: 14px;
+	margin-bottom: 30px;
 }
 
 .Dummy:hover {
-	background: rgb(117, 134, 205);
+	background: rgb(138, 98, 192);
 }
 
 .wrong {
@@ -312,14 +319,13 @@
 
  .housing-weather{
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
-	margin-top: 150px;
-	position: relative;
-	top: -60px;
+	justify-content: center;
+	width: 100%;
+	height: 620px;
 	padding-bottom: 0px ;
 	margin-bottom: 0px;
-	height: 400px;
  }
 
  .subHolder{
@@ -333,17 +339,18 @@
 	/* padding-top: 10px; */
 	/* padding-left: 10px;
 	padding-right: 10px; */
-	
+	box-shadow: 4px 1px 40px 2px rgb(214, 212, 212);
 	background: white;
 	display: flex;
 	flex-direction: column;
 	width:400px;
 	border-radius: 10px;
+	margin-bottom: 20px;
 }
 
 .search-item{
 	width:400px;
-	height: 40px;
+	min-height: 40px;
 	border-style: none;
 	font-size: 13px;
 	background: rgb(237, 229, 251);
@@ -384,35 +391,87 @@
 }
 .search-bar-results{
 	width: 400px;
+	max-height: 400px;
+	overflow-y: auto;
+	overflow-x: hidden;
 	display: flex;
+	background: rgb(222, 199, 241);
 	align-items: center;
 	flex-direction: column;
-	border-radius: 10px 0px 0px 10px;
 	/* margin-bottom: 10px; */
 }
 
 .locationInput.search{
-	margin-bottom: 2px;
 	width: 330px;
+	text-decoration: none;
+	height: 50px;
+	border: none;
 	box-shadow: none;
+	box-shadow: none;
+	font-size: 16px;
+	/* font-family: bootstrap-icons; */
+	margin-right: 10px;
 	border-radius: 10px 10px 10px 10px;
 	/* border-bottom: 2px solid rgb(238, 233, 233) */
+}
+
+.weather-search-bar-box{
+	padding-left: 20px;
 }
 .locationInput.search:focus{
 	outline: none;
 }
 
- @media screen and (max-width: 1300px) {
+.weather-widget-holder-housing{
+	justify-content: center;
+	position: relative;
+	height: 620px;
+	align-items: center;
+	text-align: center;
+	margin-right: 50px;
+}
+
+.weather-location-holder-housing{
+	justify-content: center;
+	align-items: center;
+	position: sticky;
+	top:0px;
+	height: 620px;
+	margin-left: 50px;
+	text-align: center;
+}
+
+.weather-widget-holder-housing h1{
+	text-align: center;
+	color: black;
+	margin-bottom: 20px;
+}
+
+.weather-location-holder-housing h1{
+	text-align: center;
+	position: relative;
+	color: black;
+	margin-bottom: 40px;
+}
+
+ @media screen and (max-width: 1150px) {
 	.housing-weather{
-		top:0px;
-		margin-bottom: 100px;
+		flex-direction: column;
+		
+	}
+
+	.weather-location-holder-housing{
+		margin-left: 0px;
+	}
+	.weather-widget-holder-housing{
+		margin-right: 0px;
 	}
  }
  
 
- @media screen and (max-width: 700px) {
+ /* @media screen and (max-width: 700px) {
 	div.weather{
 		position: relative;
 		left: 20px;
 	}
- }
+ }  */

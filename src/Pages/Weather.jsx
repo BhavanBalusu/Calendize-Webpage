@@ -5,7 +5,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../firebase";
 import { doc, query, collection, where, getDocs, updateDoc } from "firebase/firestore";
 import { useEffect } from "react";
-import List from '../Components/WeatherSearchList'
+// import List from '../Components/WeatherSearchList'
+import data from "../current.city.list.json"
 
 import Widget from '../Components/WeatherWidget';
 
@@ -14,6 +15,47 @@ export default function Location() {
     const [inputText, setInputText] = useState("");
     const [loc, setLoc] = useState("None");
     const locRef = useRef("")
+    const [lon, setLon] = useState("");
+    const [lan, setLan] = useState("")
+
+
+    const filteredData = data.filter((el) => {
+        if (inputText === '') {
+            return el[0];
+        }
+        else {
+            return el[0].toLowerCase().includes(inputText.toLowerCase())
+        }
+    })
+
+    const filteringData = ()=>{
+        
+        let i = 0;
+        filteredData.map((item) => {
+           i++;
+        })
+        if(inputText === ""){
+            return(
+                <h5></h5>
+            )
+        }
+
+        if(i>75){
+            return(
+                <h5 className="search-item error">There are too many results. Try with more specific keywords. 😊 </h5>
+            )
+        }
+        else if(i===0){
+            return(
+                <h5 className="search-item error">There are no results. 😞</h5>
+            )
+        }
+        else{
+            return(filteredData.map((item) => (
+                 <button onClick={()=>{ submitData(item[2] + ", " + item[1])}} className="search-item"key={item[2] + ", " + item[1]}>{item[0]}</button>
+            )))
+        }
+    }
 
     const getUserLoc = async () => {
         if (currUser == null) {
@@ -27,23 +69,22 @@ export default function Location() {
             const userDoc = await getDocs(q);
             const userLoc = userDoc.docs[0].get("location")
 
-            if (userLoc.indexOf(",") === -1)
-                setLoc(userLoc)
+            // if (userLoc.indexOf(",") === -1)
+            //     setLoc(userLoc)
+            // else {
+            const cityName = fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${userLoc.substring(0, userLoc.indexOf(",")).trim()}&lon=${userLoc.substring(userLoc.indexOf(",") + 1).trim()}&appid=91ed74c2909e6d1d05ef3dd5569b5de2`)
+                .catch(err => {
+                    alert("an error occured")
+                    console.log(err)
+                    return;
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data[0].lat + ", " + data[0].lon)
+                    setLoc(data[0].lat + ", " + data[0].lon)
+                })
 
-            else {
-                const cityName = fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${userLoc.substring(0, userLoc.indexOf(",")).trim()}&lon=${userLoc.substring(userLoc.indexOf(",") + 1).trim()}&appid=91ed74c2909e6d1d05ef3dd5569b5de2`)
-                    .catch(err => {
-                        alert("an error occured")
-                        console.log(err)
-                        return;
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data[0].name)
-                        setLoc(data[0].name)
-                    })
-
-            }
+            // }
 
 
         } catch (err) {
@@ -67,7 +108,7 @@ export default function Location() {
             navigator.geolocation.getCurrentPosition(getLoc)
         } else {
             setLoc("None");
-            console.log("sfs")
+        
         }
     }
 
@@ -81,8 +122,8 @@ export default function Location() {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data[0].name)
-                setLoc(data[0].name)
+                console.log(position.coords.latitude + ", " +position.coords.longitude )
+                setLoc(position.coords.latitude + ", " +position.coords.longitude )
             })
 
         addToDB(position.coords.latitude + ", " + position.coords.longitude)
@@ -100,20 +141,11 @@ export default function Location() {
         return false;
     }
 
-    const submitData = async e => {
-        e.preventDefault();
-        let widg = document.querySelector(".widget");
-
-        if (!nonAlpha(locRef.current.value.trim()) && locRef.current.value.trim() !== '') {
-            setLoc(locRef.current.value.trim())
-            await addToDB(locRef.current.value.trim())
-            closePopUp();
-        }
-        else {
-            const inp = document.querySelector(".locationInput")
-            inp.style.border = "1px solid red";
-        }
-        locRef.current.value = ""
+    const submitData = async (coords) => {
+        await addToDB(coords)
+        setInputText("")
+        var locationInput = document.getElementsByClassName("locationInput search")[0];
+        locationInput.value = ""
     }
 
     const addToDB = async (val) => {
@@ -127,7 +159,6 @@ export default function Location() {
             const docID = userDoc.docs[0].id;
 
             await updateDoc(doc(db, "users", docID), { location: val })
-
         } catch (err) {
             console.error(err)
             alert("Unable to save location.")
@@ -156,14 +187,27 @@ export default function Location() {
     return (
         <>
             <div className="housing-weather">
-            <Widget />
-            <div className="weather-search-bar">
-                <div>
-                    <input type="text" placeholder="Enter city name" className="locationInput search" onChange={inputHandler} />
-                    <i class="bi bi-search"></i>
+                <div className="weather-widget-holder-housing">
+                    <h1>Preview</h1>
+                    <Widget />
                 </div>
-                <List input={inputText}/>
-            </div>
+                <div className="weather-location-holder-housing">
+                    <h1>Change Location</h1>
+                    <button className="Dummy" onClick={(e) => getLocation(e)}><i class="bi bi-geo-alt-fill"></i> Request Current Location</button>
+                    
+                    <div className="weather-search-bar">
+                        <div className="weather-search-bar-box">
+                            <input type="text" placeholder="Enter city name" className="locationInput search" onChange={inputHandler} />
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <div className="search-bar-results">
+                            {filteringData()}
+                        </div>
+                    </div>
+                </div>
+
+                
+
            
                 {/* <div className="subHolder">
                     <div className="GetUserLocation">

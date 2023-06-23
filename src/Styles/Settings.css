@@ -1,7 +1,6 @@
 .settings-page {
 	display: flex;
 	flex-direction: column;
-	margin-left: 100px;
 }
 
 .settings-holder {
@@ -10,58 +9,80 @@
 	flex-direction: column;
 	margin-top: 100px;
 	background-color: white;
-	box-shadow: 0px 5px 50px grey;
+	box-shadow: 0px 5px 50px rgb(218, 220, 237);
 	padding-bottom: 20px;
-	border-radius: 0.2em;
+	border-radius: 1rem;
+	min-width: 400px;
+	align-self: center;
+	justify-self: center;
 }
 
 .settings-page .content-holder {
 	display: flex;
 	width: 100%;
 	font-size: 1em;
+	flex-direction: column;
+	text-align: left;
 }
 
-.settings-page .labels {
-	width: 50%;
-	font-weight: 800;
+.settings-page .title-holder {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+#password-display {
+	background: transparent;
+	padding: 0px 20px;
+	font-size: 1em;
+	height: 16.75%;
+}
+
+input[type="password"]:disabled {
+	background: transparent;
+	color: black;
+	border: none;
+}
+.settings-page input {
+	border: none;
+	text-decoration: none;
+	border-bottom: 1px solid rgb(200, 200, 200);
+	margin-bottom: 4px;
+	transition: all 0.35s ease;
+	transform-origin: left;
+	resize: none;
+}
+
+.settings-page #input-display:focus {
+	outline-width: 0;
+	outline: none;
+	border-bottom: 1px solid rgb(96, 29, 122);
 }
 
 .settings-page .edit-icon {
-	font-size: 0.5em;
-	padding: 0;
-	margin-left: 70%;
+	font-size: 1.25em;
+	margin-right: 10px;
 }
 
 .settings-page .label.text {
 	padding: 10px 20px;
+	width: 30%;
 }
 
-.settings-page .labels .text {
-	font-weight: bold;
+.label-field-component {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	text-align: left;
 }
 
 .settings-page .content {
 	padding-right: 20px;
 	width: 50%;
-}
-
-.settings-page .back-button {
-	border: none;
-	position: fixed;
-	margin-top: 10px;
-	margin-left: 10px;
-	left: 0;
-	border-radius: 0.4rem;
-	width: 4vw;
-	height: 3vh;
-	background-color: rebeccapurple;
-	color: white;
-
-	transition: all 0.3s cubic-bezier(0.5, -0.75, 0.6, 1.69);
-}
-
-.back-button:hover {
-	opacity: 0.9;
 }
 
 .settings-page h3 {
@@ -71,11 +92,92 @@
 .settings-page h1 {
 	color: black;
 	font-size: 2rem;
-	margin-bottom: 30px;
-	margin-top: 30px;
 	padding-left: 20px;
 }
 
 .settings-page hr {
 	margin-bottom: 30px;
+}
+
+.hidden * {
+	display: none;
+	border: 1px solid black;
+}
+
+.borderless {
+	border: none;
+}
+
+.settings-page .buttons-holder {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.buttons-holder button {
+	width: 20%;
+	height: 2.5rem;
+	border-radius: 0.75em;
+	border: none;
+	font-weight: 500;
+	color: white;
+	transition: all 0.15s ease-in;
+}
+
+.label.text.current {
+	color: grey;
+}
+
+.buttons-holder button:hover {
+	cursor: pointer;
+	filter: brightness(125%);
+}
+
+.buttons-holder .save {
+	background-color: rgb(153, 53, 220);
+}
+
+.buttons-holder .cancel {
+	background-color: rgb(150, 150, 150);
+}
+
+@media screen and (max-width: 1250px) {
+	.label-field-component {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+	}
+
+	.label.text {
+		width: 100%;
+		text-align: center;
+	}
+
+	.settings-page .buttons-holder {
+		margin-top: 25px;
+	}
+
+	.settings-page .buttons-holder button {
+		width: 100px;
+	}
+}
+
+@media screen and (max-width: 1700px) {
+	.settings-holder {
+		align-self: center;
+		justify-self: center;
+		margin-left: 100%;
+	}
+}
+
+@media screen and (max-width: 1230px) {
+	.settings-holder {
+		align-self: center;
+		justify-self: center;
+		margin-left: 0;
+	}
 }

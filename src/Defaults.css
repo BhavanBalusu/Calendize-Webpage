@@ -3,13 +3,14 @@
 }
 
 body {
-	background: linear-gradient(
+	/* background: linear-gradient(
 		to right,
-		rgb(238, 240, 241),
-		rgb(234, 239, 241),
-		rgb(231, 237, 240),
-		rgb(220, 232, 237)
-	);
+		rgb(240, 238, 241),
+		rgb(237, 234, 241),
+		rgb(237, 231, 240),
+		rgb(225, 220, 237)
+	); */
+	background: rgb(241, 241, 241);
 	height: 100vh;
 	overflow-x: hidden;
 }

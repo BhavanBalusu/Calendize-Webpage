@@ -14,7 +14,7 @@ function Dashboard(props) {
       <div className='dashPage-holders'>
         <Sidebar/>
         <div className='DasH'>
-          <Navbar title="Dashboard" />
+          <Navbar title="" />
           <div className='dashPage'>
           
           <div className='column one'>

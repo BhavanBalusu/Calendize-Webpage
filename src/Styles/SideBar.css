@@ -70,7 +70,7 @@
 .nav-buttons button {
 	text-align: start;
 	padding-left: 30px;
-	height: 60px;
+	min-height: 60px;
 	width: 100%;
 	font-size: 19px;
 	color: #9a8cf5;
