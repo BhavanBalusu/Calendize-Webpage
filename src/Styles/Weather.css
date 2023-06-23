@@ -454,7 +454,7 @@
 	margin-bottom: 40px;
 }
 
- @media screen and (max-width: 1150px) {
+ @media screen and (max-width: 1200px) {
 	.housing-weather{
 		flex-direction: column;
 		
