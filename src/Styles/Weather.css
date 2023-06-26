@@ -46,7 +46,8 @@
 }
 
 .cityName.widget{
-	margin-top: 20px;
+	margin-top: 40px;
+	margin-bottom: 0px;
 }
 
 .tempInfo {
@@ -180,6 +181,7 @@
 
 .weather.noloc{
 	margin-bottom: 120px;
+	margin-top: 60px;
 }
 
 .Dummy {
@@ -292,8 +294,8 @@
   }
   
   .noLocation {
-	font-size: 3.5vh;
-	margin: 0px;
+	font-size: 30px;
+	margin-top: 20px;
   }
   
   .minMax {

@@ -8,7 +8,7 @@ import PlaceholderLoading from 'react-placeholder-loading'
 const IncorrectData = () => {
   return (
     <div className="weather noloc">
-      <h2 className="noLocation">Weather Unable to be Loaded</h2>
+      <h2 className="noLocation">Weather unable to be loaded 😞</h2>
     </div>
   );
 };

@@ -8,7 +8,7 @@ function SettingsPage(){
     return(
         <>
             <div className='dashPage-holders'>
-                <Sidebar/>
+                <Sidebar page="settings"/>
                 <div className='DasH'>
                     <Navbar/>
                     <div className='dashPage'>

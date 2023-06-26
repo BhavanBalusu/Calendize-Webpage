@@ -12,7 +12,7 @@ function Dashboard(props) {
   return (
     <>
       <div className='dashPage-holders'>
-        <Sidebar/>
+        <Sidebar page="dash"/>
         <div className='DasH'>
           <Navbar title="" />
           <div className='dashPage'>

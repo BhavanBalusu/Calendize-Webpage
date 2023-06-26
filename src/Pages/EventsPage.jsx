@@ -7,7 +7,7 @@ function EventsPage(){
     return(
         <>
             <div className='dashPage-holders'>
-                <Sidebar/>
+                <Sidebar page="events"/>
                 <div className='DasH'>
                     <Navbar/>
                     <div className='dashPage'>

@@ -8,7 +8,7 @@ function WeatherPage(){
     return(
         <>
             <div className='dashPage-holders'>
-                <Sidebar/>
+                <Sidebar page="weather" />
                 <div className='DasH'>
                     <Navbar/>
                     <div >

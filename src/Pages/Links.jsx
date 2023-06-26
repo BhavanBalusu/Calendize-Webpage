@@ -9,7 +9,7 @@ function Links(){
     return(
         <>
             <div className='dashPage-holders'>
-                <Sidebar/>
+                <Sidebar page ="links"/>
                 <div className='DasH'>
                     <Navbar/>
                     <div className='dashPage'>

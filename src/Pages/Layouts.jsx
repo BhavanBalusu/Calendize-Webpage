@@ -7,7 +7,7 @@ function Layouts() {
 
     return (
         <div className='dashPage-holders'>
-            <Sidebar />
+            <Sidebar page="layouts"/>
             <div className='DasH'>
                 <Navbar />
                 <div className='dashPage'>
