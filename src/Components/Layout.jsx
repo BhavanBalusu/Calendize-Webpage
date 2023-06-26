@@ -25,6 +25,7 @@ function Layout() {
     const getUserOption = async () => {
 
         if (currUser == null) {
+            console.log("null user")
             return;
         }
 
@@ -38,24 +39,24 @@ function Layout() {
             const userOption = userDoc.docs[0].get("layout")
 
             if (userOption === "" || userOption === "H1") {
-                horizOne.current.classList.toggle("hoverable")
-                horizOne.current.classList.toggle("selected")
+                horizOne.current.classList.remove("hoverable")
+                horizOne.current.classList.add("selected")
             }
 
             else if (userOption === "H2") {
-                horizTwo.current.classList.toggle("hoverable")
-                horizTwo.current.classList.toggle("selected")
+                horizTwo.current.classList.remove("hoverable")
+                horizTwo.current.classList.add("selected")
 
             }
 
             else if (userOption === 'V1') {
-                vertOne.current.classList.toggle("hoverable")
-                vertOne.current.classList.toggle("selected")
+                vertOne.current.classList.remove("hoverable")
+                vertOne.current.classList.add("selected")
             }
 
             else {
-                vertTwo.current.classList.toggle("hoverable")
-                vertTwo.current.classList.toggle("selected")
+                vertTwo.current.classList.remove("hoverable")
+                vertTwo.current.classList.add("selected")
             }
 
 
@@ -70,8 +71,8 @@ function Layout() {
         setLayout(val);
 
         if (val === "" || val === "H1") {
-            horizOne.current.classList.toggle("hoverable")
-            horizOne.current.classList.toggle("selected")
+            horizOne.current.classList.remove("hoverable")
+            horizOne.current.classList.add("selected")
 
             horizTwo.current.classList.add("hoverable")
             horizTwo.current.classList.remove("selected")
@@ -84,8 +85,8 @@ function Layout() {
         }
 
         else if (val === "H2") {
-            horizTwo.current.classList.toggle("hoverable")
-            horizTwo.current.classList.toggle("selected")
+            horizTwo.current.classList.remove("hoverable")
+            horizTwo.current.classList.add("selected")
 
             horizOne.current.classList.add("hoverable")
             horizOne.current.classList.remove("selected")
@@ -99,8 +100,8 @@ function Layout() {
         }
 
         else if (val === 'V1') {
-            vertOne.current.classList.toggle("hoverable")
-            vertOne.current.classList.toggle("selected")
+            vertOne.current.classList.remove("hoverable")
+            vertOne.current.classList.add("selected")
 
             horizOne.current.classList.add("hoverable")
             horizOne.current.classList.remove("selected")
@@ -113,8 +114,8 @@ function Layout() {
         }
 
         else {
-            vertTwo.current.classList.toggle("hoverable")
-            vertTwo.current.classList.toggle("selected")
+            vertTwo.current.classList.remove("hoverable")
+            vertTwo.current.classList.add("selected")
 
             horizOne.current.classList.add("hoverable")
             horizOne.current.classList.remove("selected")
