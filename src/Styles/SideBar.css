@@ -171,4 +171,13 @@
 		background: rgb(239, 66, 66);
 	}
 
+	.housing-weather{
+		align-self: center;
+		justify-content: center;
+	}
+
+	.DasH{
+		margin-left: 130px;
+	}
+
 }

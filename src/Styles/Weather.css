@@ -471,9 +471,12 @@
  }
  
 
- /* @media screen and (max-width: 700px) {
-	div.weather{
-		position: relative;
-		left: 20px;
+ @media screen and (max-width: 750px) {
+	.housing-weather{
+		/* position: relative;
+		align-self: center; */
 	}
- }  */
+	.dashPage-holders{
+		padding-left: 0px;
+	}
+ } 
